@@ -1,6 +1,8 @@
-
 ---
 import "../styles/header.css";
+
+// IMPORT LOGO DARI FOLDER ASSETS
+import logo from "../assets/image/logo.webp";
 ---
 
 <header class="db-header">
@@ -14,9 +16,11 @@ import "../styles/header.css";
     >
       <!-- LOGO GAMBAR -->
       <img
-        src="/logo.webp"
+        src={logo.src}
         alt="Logo Doa Baitullah"
         class="db-logo"
+        width="60"
+        height="60"
       />
 
       <!-- TULISAN DI SAMPING LOGO -->
