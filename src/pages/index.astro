@@ -17,7 +17,6 @@ import Footer from "../components/Footer.astro";
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
-
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0"
@@ -36,18 +35,18 @@ import Footer from "../components/Footer.astro";
     <Header />
 
     <main>
-      <!-- HERO: BACKGROUND TETAP, KONTEN ANIMASI RINGAN -->
-      <div class="hero-reveal">
+      <!-- HERO: BACKGROUND LANGSUNG TAMPIL -->
+      <div id="beranda">
         <Hero />
       </div>
 
       <!-- RUANG DOA -->
-      <div class="scroll-reveal">
+      <div id="tentang" class="scroll-reveal">
         <RuangDoa />
       </div>
 
       <!-- JENIS DOA -->
-      <div class="scroll-reveal">
+      <div id="program" class="scroll-reveal">
         <JenisDoa />
       </div>
 
@@ -57,7 +56,7 @@ import Footer from "../components/Footer.astro";
       </div>
 
       <!-- FORM DOA -->
-      <div class="scroll-reveal">
+      <div id="form-doa" class="scroll-reveal">
         <FormDoa />
       </div>
 
@@ -80,12 +79,12 @@ import Footer from "../components/Footer.astro";
       <div class="scroll-reveal">
         <CTA />
       </div>
-
-      <!-- SECTION LAINNYA NANTI DI SINI -->
     </main>
 
     <!-- FOOTER TANPA ANIMASI -->
-    <Footer />
+    <div id="kontak">
+      <Footer />
+    </div>
 
     <!-- =====================================
          SCROLL REVEAL SCRIPT
@@ -93,7 +92,7 @@ import Footer from "../components/Footer.astro";
     <script>
       const revealElements =
         document.querySelectorAll<HTMLElement>(
-          ".scroll-reveal, .hero-reveal"
+          ".scroll-reveal, .hero-content"
         );
 
       const reducedMotion = window.matchMedia(
@@ -113,14 +112,8 @@ import Footer from "../components/Footer.astro";
             entries.forEach((entry) => {
               if (!entry.isIntersecting) return;
 
-              entry.target.classList.add(
-                "is-visible"
-              );
-
-              // Animasi hanya satu kali
-              observerInstance.unobserve(
-                entry.target
-              );
+              entry.target.classList.add("is-visible");
+              observerInstance.unobserve(entry.target);
             });
           },
           {
@@ -167,19 +160,28 @@ import Footer from "../components/Footer.astro";
   }
 
   /* =====================================
-     HERO
-     BACKGROUND TIDAK IKUT ANIMASI
+     HERO CONTENT ONLY
+     BACKGROUND TIDAK ANIMASI
   ===================================== */
 
-  .hero-reveal {
+  .hero-content {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* =====================================
+     SECTION SCROLL REVEAL
+  ===================================== */
+
+  .scroll-reveal {
     opacity: 1;
     transform: none;
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    .hero-reveal {
+    .hero-content {
       opacity: 0;
-      transform: translate3d(0, 25px, 0);
+      transform: translate3d(0, 20px, 0);
 
       transition:
         opacity 1.5s ease,
@@ -191,23 +193,11 @@ import Footer from "../components/Footer.astro";
         );
     }
 
-    .hero-reveal.is-visible {
+    .hero-content.is-visible {
       opacity: 1;
       transform: translate3d(0, 0, 0);
     }
-  }
 
-  /* =====================================
-     SECTION SCROLL REVEAL
-     SLOW + SMOOTH
-  ===================================== */
-
-  .scroll-reveal {
-    opacity: 1;
-    transform: none;
-  }
-
-  @media (prefers-reduced-motion: no-preference) {
     .scroll-reveal {
       opacity: 0;
       transform: translate3d(0, 90px, 0);
@@ -235,23 +225,25 @@ import Footer from "../components/Footer.astro";
 
   /* =====================================
      RESPONSIVE MOBILE
+     TANPA RUANG KOSONG
   ===================================== */
 
   @media (max-width: 768px) {
     html {
-      scroll-padding-top: 130px;
+      scroll-padding-top: 80px;
     }
 
+    /* SAMA DENGAN TINGGI HEADER MOBILE */
     main {
-      padding-top: 120px;
+      padding-top: 70px;
     }
 
     @media (prefers-reduced-motion: no-preference) {
-      .hero-reveal {
+      .hero-content {
         transform: translate3d(0, 15px, 0);
       }
 
-      .hero-reveal.is-visible {
+      .hero-content.is-visible {
         transform: translate3d(0, 0, 0);
       }
 
@@ -275,7 +267,7 @@ import Footer from "../components/Footer.astro";
       scroll-behavior: auto;
     }
 
-    .hero-reveal,
+    .hero-content,
     .scroll-reveal {
       opacity: 1 !important;
       transform: none !important;
