@@ -19,6 +19,8 @@
 
   font-family: Arial, Helvetica, sans-serif;
 
+  overflow: visible;
+
   transform: none;
   animation: none;
   transition: none;
@@ -39,6 +41,8 @@
   height: 80px;
 
   margin: 0 auto;
+
+  overflow: visible;
 }
 
 /* ==================================
@@ -48,31 +52,43 @@
 .db-brand {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 4px;
 
   width: max-content;
   max-width: 100%;
+  min-width: 0;
   height: 80px;
 
+  flex-shrink: 0;
+
   text-decoration: none;
+  overflow: visible;
 }
 
 /* ==================================
-   GAMBAR LOGO
+   GAMBAR LOGO - DIPERBESAR
 ================================== */
 
 .db-logo {
   display: block;
 
-  width: 65px;
-  height: 65px;
+  width: 110px;
+  height: 110px;
+  min-width: 110px;
+  min-height: 110px;
+  max-width: none;
+  max-height: none;
 
-  flex-shrink: 0;
+  flex: 0 0 110px;
+
   object-fit: contain;
+  object-position: center;
 
   background: transparent;
   border: none;
   box-shadow: none;
+
+  transform: none;
 }
 
 /* ==================================
@@ -86,6 +102,7 @@
   gap: 2px;
 
   min-width: 0;
+  flex-shrink: 0;
 }
 
 .db-brand-text strong {
@@ -178,12 +195,22 @@
 ================================== */
 
 @media (max-width: 1150px) {
+
   .db-header-inner {
     width: calc(100% - 40px);
   }
 
   .db-nav {
     gap: 24px;
+  }
+
+  .db-logo {
+    width: 95px;
+    height: 95px;
+    min-width: 95px;
+    min-height: 95px;
+
+    flex-basis: 95px;
   }
 }
 
@@ -198,6 +225,7 @@
   .db-header {
     height: 70px;
     min-height: 70px;
+    overflow: visible;
   }
 
   /* CONTAINER */
@@ -207,35 +235,49 @@
     align-items: center;
     justify-content: space-between;
 
-    width: calc(100% - 32px);
+    width: calc(100% - 24px);
     height: 70px;
 
-    gap: 10px;
+    gap: 6px;
     margin: 0 auto;
+
+    overflow: visible;
   }
 
-  /* LOGO + TULISAN KIRI */
+  /* LOGO + TULISAN */
 
   .db-brand {
     display: inline-flex;
     align-items: center;
 
     width: auto;
-    max-width: calc(100% - 105px);
+    max-width: calc(100% - 100px);
     min-width: 0;
     height: 70px;
 
-    gap: 6px;
+    gap: 0;
+
+    flex-shrink: 1;
+    overflow: visible;
   }
 
-  /* GAMBAR LOGO */
+  /* LOGO BESAR MOBILE */
 
   .db-logo {
-    width: 43px;
-    height: 43px;
+    display: block;
 
-    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    min-height: 70px;
+
+    max-width: none;
+    max-height: none;
+
+    flex: 0 0 70px;
+
     object-fit: contain;
+    object-position: center;
   }
 
   /* TULISAN LOGO */
@@ -244,9 +286,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 1px;
 
+    gap: 1px;
     min-width: 0;
+    flex-shrink: 0;
   }
 
   .db-brand-text strong {
@@ -266,7 +309,7 @@
     white-space: nowrap;
   }
 
-  /* SEMBUNYIKAN MENU DI HP */
+  /* SEMBUNYIKAN NAVIGASI */
 
   .db-nav {
     display: none !important;
@@ -300,16 +343,22 @@
 @media (max-width: 420px) {
 
   .db-header-inner {
-    width: calc(100% - 24px);
+    width: calc(100% - 20px);
+    gap: 4px;
   }
 
   .db-brand {
-    gap: 5px;
+    gap: 0;
+    max-width: calc(100% - 90px);
   }
 
   .db-logo {
-    width: 38px;
-    height: 38px;
+    width: 62px;
+    height: 62px;
+    min-width: 62px;
+    min-height: 62px;
+
+    flex: 0 0 62px;
   }
 
   .db-brand-text strong {
@@ -336,16 +385,22 @@
 @media (max-width: 360px) {
 
   .db-header-inner {
-    width: calc(100% - 20px);
+    width: calc(100% - 16px);
+    gap: 3px;
   }
 
   .db-brand {
-    gap: 4px;
+    gap: 0;
+    max-width: calc(100% - 80px);
   }
 
   .db-logo {
-    width: 34px;
-    height: 34px;
+    width: 54px;
+    height: 54px;
+    min-width: 54px;
+    min-height: 54px;
+
+    flex: 0 0 54px;
   }
 
   .db-brand-text strong {
