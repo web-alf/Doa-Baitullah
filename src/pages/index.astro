@@ -17,6 +17,7 @@ import Footer from "../components/Footer.astro";
 <html lang="id">
   <head>
     <meta charset="UTF-8" />
+
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0"
@@ -31,11 +32,13 @@ import Footer from "../components/Footer.astro";
   </head>
 
   <body>
-    <!-- HEADER TANPA ANIMASI -->
+    <!-- =====================================
+         HEADER TANPA ANIMASI
+    ===================================== -->
     <Header />
 
     <main>
-      <!-- HERO: BACKGROUND LANGSUNG TAMPIL -->
+      <!-- HERO: BACKGROUND TETAP -->
       <div id="beranda">
         <Hero />
       </div>
@@ -75,7 +78,7 @@ import Footer from "../components/Footer.astro";
         <FAQ />
       </div>
 
-      <!-- CTA -->
+      <!-- CTA BESAR -->
       <div class="scroll-reveal">
         <CTA />
       </div>
@@ -85,6 +88,32 @@ import Footer from "../components/Footer.astro";
     <div id="kontak">
       <Footer />
     </div>
+
+    <!-- =====================================
+         FLOATING CTA KHUSUS MOBILE
+    ===================================== -->
+    <aside
+      class="mobile-floating-cta"
+      aria-label="Titipkan doa sekarang"
+    >
+      <div class="mobile-floating-cta-inner">
+
+        <!-- TULISAN KIRI -->
+        <div class="mobile-floating-cta-text">
+          <strong>Rindu Baitullah?</strong>
+          <span>Titip doa sekarang</span>
+        </div>
+
+        <!-- TOMBOL KANAN -->
+        <a
+          href="#form-doa"
+          class="mobile-floating-cta-button"
+        >
+          Titipkan Doa Sekarang
+        </a>
+
+      </div>
+    </aside>
 
     <!-- =====================================
          SCROLL REVEAL SCRIPT
@@ -113,7 +142,10 @@ import Footer from "../components/Footer.astro";
               if (!entry.isIntersecting) return;
 
               entry.target.classList.add("is-visible");
-              observerInstance.unobserve(entry.target);
+
+              observerInstance.unobserve(
+                entry.target
+              );
             });
           },
           {
@@ -147,6 +179,7 @@ import Footer from "../components/Footer.astro";
   body {
     margin: 0;
     padding: 0;
+
     font-family: Arial, Helvetica, sans-serif;
     background: #fdfaf5;
   }
@@ -224,8 +257,15 @@ import Footer from "../components/Footer.astro";
   }
 
   /* =====================================
+     FLOATING CTA - DEFAULT DESKTOP
+  ===================================== */
+
+  .mobile-floating-cta {
+    display: none;
+  }
+
+  /* =====================================
      RESPONSIVE MOBILE
-     TANPA RUANG KOSONG
   ===================================== */
 
   @media (max-width: 768px) {
@@ -233,10 +273,132 @@ import Footer from "../components/Footer.astro";
       scroll-padding-top: 80px;
     }
 
-    /* SAMA DENGAN TINGGI HEADER MOBILE */
+    body {
+      /* Ruang aman agar footer tidak tertutup CTA */
+      padding-bottom: calc(
+        90px + env(safe-area-inset-bottom, 0px)
+      );
+    }
+
+    /* Sama dengan tinggi header mobile */
     main {
       padding-top: 70px;
     }
+
+    /* =====================================
+       FLOATING CTA MOBILE
+    ===================================== */
+
+    .mobile-floating-cta {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+
+      z-index: 9998;
+
+      display: block;
+
+      width: 100%;
+
+      padding:
+        12px
+        10px
+        calc(12px + env(safe-area-inset-bottom, 0px));
+
+      background: rgba(253, 250, 245, 0.97);
+
+      border-top: 1px solid rgba(0, 54, 43, 0.08);
+
+      box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.04);
+    }
+
+    .mobile-floating-cta-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+
+      width: 100%;
+      max-width: 500px;
+      min-height: 54px;
+
+      margin: 0 auto;
+      padding: 6px 7px 6px 20px;
+
+      background: #06483d;
+      border-radius: 999px;
+
+      box-shadow: 0 8px 24px rgba(0, 54, 43, 0.2);
+    }
+
+    /* TULISAN KIRI */
+
+    .mobile-floating-cta-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2px;
+
+      min-width: 0;
+    }
+
+    .mobile-floating-cta-text strong {
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .mobile-floating-cta-text span {
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 9px;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    /* TOMBOL GOLD */
+
+    .mobile-floating-cta-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      flex-shrink: 0;
+
+      min-height: 40px;
+      padding: 0 15px;
+
+      background: linear-gradient(
+        180deg,
+        #ffe5a0 0%,
+        #d4af37 100%
+      );
+
+      color: #06483d;
+
+      border-radius: 999px;
+
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+
+      text-decoration: none;
+      white-space: nowrap;
+
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+
+      transition: background 0.2s ease;
+    }
+
+    .mobile-floating-cta-button:hover {
+      background: #f1c75c;
+    }
+
+    /* =====================================
+       ANIMASI SECTION MOBILE
+    ===================================== */
 
     @media (prefers-reduced-motion: no-preference) {
       .hero-content {
@@ -259,6 +421,30 @@ import Footer from "../components/Footer.astro";
   }
 
   /* =====================================
+     MOBILE KECIL
+  ===================================== */
+
+  @media (max-width: 380px) {
+    .mobile-floating-cta-inner {
+      gap: 6px;
+      padding-left: 14px;
+    }
+
+    .mobile-floating-cta-text strong {
+      font-size: 10px;
+    }
+
+    .mobile-floating-cta-text span {
+      font-size: 8px;
+    }
+
+    .mobile-floating-cta-button {
+      padding: 0 11px;
+      font-size: 9px;
+    }
+  }
+
+  /* =====================================
      ACCESSIBILITY
   ===================================== */
 
@@ -271,6 +457,10 @@ import Footer from "../components/Footer.astro";
     .scroll-reveal {
       opacity: 1 !important;
       transform: none !important;
+      transition: none !important;
+    }
+
+    .mobile-floating-cta-button {
       transition: none !important;
     }
   }
