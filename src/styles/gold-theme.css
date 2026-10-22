@@ -1,0 +1,90 @@
+
+/* =====================================
+   DOA BAITULLAH - GOLD THEME
+===================================== */
+
+:root {
+  --db-gold: #D4AF37;
+  --db-gold-hover: #b89628;
+  --db-dark: #292929;
+  --db-cream: #fdfaf5;
+}
+
+/* FONT UTAMA */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* =====================================
+   JUDUL UTAMA
+===================================== */
+
+.ruang-doa-title,
+.testimoni-title,
+.testimoni-subtitle {
+  color: var(--db-gold);
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+}
+
+/* =====================================
+   RUANG DOA
+===================================== */
+
+.ruang-doa-label {
+  color: var(--db-gold);
+  border-color: var(--db-gold);
+}
+
+.ruang-doa-quote p {
+  color: var(--db-dark);
+}
+
+.ruang-doa-signature {
+  color: var(--db-gold);
+}
+
+.ruang-doa-line {
+  background: var(--db-gold);
+}
+
+/* =====================================
+   HEADER
+===================================== */
+
+.db-brand-text strong,
+.db-brand-text span {
+  color: var(--db-gold);
+}
+
+.db-nav a {
+  color: var(--db-dark);
+}
+
+.db-nav a:hover {
+  color: var(--db-gold);
+}
+
+.db-cta {
+  background: var(--db-gold);
+  color: #ffffff;
+  box-shadow: 0 7px 16px rgba(212,175,55,.18);
+}
+
+.db-cta:hover {
+  background: var(--db-gold-hover);
+}
+
+/* =====================================
+   GAMBAR RUANG DOA
+===================================== */
+
+.ruang-doa-image-wrap {
+  background: var(--db-cream);
+}
+
+.ruang-doa-image {
+  object-fit: contain;
+  object-position: center;
+}

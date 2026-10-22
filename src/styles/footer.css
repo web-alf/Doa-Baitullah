@@ -9,7 +9,8 @@
   width: 100%;
   padding: 48px 24px 20px;
 
-  background: #001c17;
+  /* BACKGROUND HIJAU DIGANTI HITAM */
+  background: #050505;
   color: #ffffff;
 
   font-family: "Plus Jakarta Sans", Arial, sans-serif;
@@ -74,7 +75,9 @@
   height: 39px;
   flex-shrink: 0;
 
-  background: #006653;
+  /* HIJAU DIGANTI HITAM SOFT */
+  background: #1c1c1c;
+
   border-radius: 11px;
 
   overflow: visible;
@@ -119,7 +122,8 @@
   max-width: 280px;
   margin: 0;
 
-  color: #b1cac2;
+  /* HIJAU SOFT DIGANTI ABU-ABU TERANG */
+  color: #b5b5b5;
 
   font-size: 11.5px;
   font-weight: 400;
@@ -159,7 +163,8 @@
 
   min-width: 0;
 
-  color: #b1cac2;
+  /* HIJAU DIGANTI ABU-ABU */
+  color: #b5b5b5;
 
   font-size: 11.5px;
   font-weight: 400;
@@ -175,6 +180,7 @@
   flex-shrink: 0;
 
   margin-top: 2px;
+
   color: #e5bf62;
 }
 
@@ -201,7 +207,8 @@ a.footer-contact:hover {
 }
 
 .footer-navigation nav a {
-  color: #d2e1dc;
+  /* HIJAU SOFT DIGANTI PUTIH SOFT */
+  color: #dedede;
 
   font-size: 11.5px;
   font-weight: 400;
@@ -235,7 +242,8 @@ a.footer-contact:hover {
 .footer-legal-item {
   margin: 0;
 
-  color: #b1cac2;
+  /* HIJAU DIGANTI ABU-ABU TERANG */
+  color: #b5b5b5;
 
   font-size: 11.5px;
   font-weight: 400;
@@ -245,7 +253,9 @@ a.footer-contact:hover {
   overflow-wrap: anywhere;
 }
 
-/* LABEL TEBAL SESUAI PERMINTAAN */
+/* ======================================
+   LABEL TEBAL
+====================================== */
 
 .footer-legal-item strong {
   color: #ffffff;
@@ -297,7 +307,8 @@ a.footer-contact:hover {
 .footer-bottom p {
   margin: 0;
 
-  color: #789d94;
+  /* HIJAU DIGANTI ABU-ABU */
+  color: #999999;
 
   font-size: 10.5px;
   font-weight: 400;
@@ -316,6 +327,7 @@ a.footer-contact:hover {
   flex-shrink: 0;
 
   border-radius: 50%;
+
   background: #d4af37;
 }
 
@@ -324,6 +336,7 @@ a.footer-contact:hover {
 ====================================== */
 
 @media (max-width: 1100px) {
+
   .footer-main {
     grid-template-columns:
       minmax(0, 0.85fr)
@@ -341,6 +354,7 @@ a.footer-contact:hover {
 ====================================== */
 
 @media (max-width: 850px) {
+
   .footer-section {
     padding: 45px 24px 20px;
   }
@@ -364,6 +378,7 @@ a.footer-contact:hover {
 ====================================== */
 
 @media (max-width: 480px) {
+
   .footer-section {
     padding: 40px 18px 18px;
   }
@@ -423,6 +438,7 @@ a.footer-contact:hover {
 ====================================== */
 
 @media (prefers-reduced-motion: reduce) {
+
   .footer-navigation nav a,
   a.footer-contact {
     transition: none;

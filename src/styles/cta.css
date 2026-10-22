@@ -1,6 +1,6 @@
 
 /* =====================================
-   CTA SECTION - FULL REVISI
+   CTA SECTION - FULL REVISI HITAM GOLD
 ===================================== */
 
 .cta-section {
@@ -15,11 +15,12 @@
 
   padding: 115px 24px 125px;
 
+  /* BACKGROUND HIJAU DIGANTI HITAM */
   background: linear-gradient(
     120deg,
-    #123725 0%,
-    #003e34 48%,
-    #005443 100%
+    #050505 0%,
+    #111111 48%,
+    #1c1c1c 100%
   );
 
   font-family: "Plus Jakarta Sans", Arial, sans-serif;
@@ -95,31 +96,33 @@
 }
 
 /* =====================================
-   DESKRIPSI
+   DESKRIPSI - PUTIH SOFT
 ===================================== */
 
 .cta-description {
   max-width: 690px;
   margin: 0 auto;
 
-  color: #d6e4dd;
+  /* HIJAU SOFT DIGANTI PUTIH SOFT */
+  color: #e8e8e8;
 
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 1.95;
 }
 
 /* =====================================
-   KALIMAT PENUTUP
+   KALIMAT PENUTUP - ABU-ABU TERANG
 ===================================== */
 
 .cta-note {
   max-width: 660px;
   margin: 65px auto 0;
 
-  color: #83aaa0;
+  /* HIJAU DIGANTI ABU-ABU */
+  color: #b5b5b5;
 
-  font-size: 13px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 2;
 }
@@ -129,6 +132,7 @@
 ===================================== */
 
 @media (max-width: 768px) {
+
   .cta-section {
     min-height: 530px;
     padding: 100px 20px;
@@ -162,6 +166,7 @@
 ===================================== */
 
 @media (max-width: 480px) {
+
   .cta-section {
     min-height: 490px;
     padding: 90px 18px;
@@ -200,6 +205,7 @@
 ===================================== */
 
 @media (prefers-reduced-motion: reduce) {
+
   .cta-section,
   .cta-heading,
   .cta-description,

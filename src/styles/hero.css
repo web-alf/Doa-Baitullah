@@ -9,21 +9,24 @@
   align-items: center;
 
   width: 100%;
-  min-height: 560px;
+  min-height: 50px;
   overflow: hidden;
 
-  background-color: #062b24;
+  /* BACKGROUND HITAM */
+  background-color: #050505;
+
+  /* OVERLAY HITAM + GAMBAR */
   background-image:
     linear-gradient(
       90deg,
-      rgba(0, 32, 27, 0.82) 0%,
-      rgba(0, 35, 29, 0.58) 42%,
-      rgba(0, 31, 26, 0.25) 100%
+      rgba(0, 0, 0, 0.82) 0%,
+      rgba(0, 0, 0, 0.58) 42%,
+      rgba(0, 0, 0, 0.25) 100%
     ),
     linear-gradient(
       0deg,
-      rgba(0, 30, 24, 0.78) 0%,
-      rgba(0, 30, 24, 0.05) 58%
+      rgba(0, 0, 0, 0.78) 0%,
+      rgba(0, 0, 0, 0.05) 58%
     ),
     var(--hero-image);
 
@@ -106,7 +109,9 @@
   text-transform: uppercase;
 }
 
-/* JUDUL PUTIH */
+/* =====================================
+   JUDUL PUTIH
+===================================== */
 
 .hero-title-white {
   display: block;
@@ -150,16 +155,19 @@
   margin: 0 0 26px;
 
   color: #ffffff;
-  font-size: 13px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 1.8;
 }
 
 /* =====================================
    TOMBOL GOLD
+   TULISAN HITAM
 ===================================== */
 
-.hero-button {
+.hero-button,
+.hero-button:link,
+.hero-button:visited {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -174,7 +182,9 @@
     #d4af37 100%
   );
 
-  color: #06483d;
+  color: #050505;
+
+  border: none;
   border-radius: 999px;
   text-decoration: none;
 
@@ -184,15 +194,31 @@
   text-transform: uppercase;
 
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+
   transition: transform 0.2s ease;
 }
 
-.hero-button:hover {
+/* =====================================
+   HOVER TOMBOL
+===================================== */
+
+.hero-button:hover,
+.hero-button:focus-visible {
+  color: #050505;
   transform: translateY(-2px);
 }
 
 /* =====================================
-   PANAH TOMBOL
+   TULISAN DI DALAM TOMBOL
+===================================== */
+
+.hero-button span,
+.hero-button strong {
+  color: inherit;
+}
+
+/* =====================================
+   PANAH TOMBOL - HITAM
 ===================================== */
 
 .hero-button-arrow {
@@ -204,12 +230,19 @@
   height: 23px;
   flex-shrink: 0;
 
-  background: #005b49;
+  background: #050505;
   color: #ffffff;
+
   border-radius: 50%;
 
   font-size: 14px;
   font-weight: 700;
+}
+
+/* PASTIKAN PANAH TETAP PUTIH */
+
+.hero-button .hero-button-arrow {
+  color: #ffffff;
 }
 
 /* =====================================
@@ -233,6 +266,7 @@
 ===================================== */
 
 @media (max-width: 1024px) {
+
   .hero {
     min-height: 540px;
   }
@@ -252,6 +286,7 @@
 ===================================== */
 
 @media (max-width: 768px) {
+
   .hero {
     min-height: 550px;
     background-position: 57% center;
@@ -297,6 +332,7 @@
 ===================================== */
 
 @media (max-width: 420px) {
+
   .hero {
     min-height: 530px;
   }

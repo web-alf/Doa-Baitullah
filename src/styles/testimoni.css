@@ -38,7 +38,7 @@
 .testimoni-heading {
   margin: 0 0 13px;
 
-  color: #005443;
+  color: #d4af37;
   font-size: clamp(29px, 3vw, 38px);
   font-weight: 800;
   line-height: 1.17;
@@ -48,14 +48,14 @@
 .testimoni-subtitle {
   margin: 0;
 
-  color: #71968c;
-  font-size: 13px;
+  color: #292929;
+  font-size: 18px;
   font-weight: 400;
   line-height: 1.8;
 }
 
 /* =====================================
-   GRID 3 HP RAMPING
+   GRID 3 HP DESKTOP
 ===================================== */
 
 .testimoni-grid {
@@ -76,18 +76,22 @@
 
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
 
   width: 100%;
   min-width: 0;
 
+  padding: 18px 12px;
+
   background: #ffffff;
-  border: 1px solid #e9f0ed;
-  border-radius: 18px;
+  border: 1px solid #e4e0d9;
+  border-radius: 22px;
 
   overflow: hidden;
 
   box-shadow:
-    0 12px 32px rgba(0, 58, 47, 0.035);
+    0 12px 32px rgba(0, 0, 0, 0.035);
 
   transition:
     transform 0.25s ease,
@@ -97,26 +101,87 @@
 
 .testimoni-card:hover {
   transform: translateY(-5px);
-  border-color: #d4e5de;
+  border-color: #d4af37;
 
   box-shadow:
-    0 18px 38px rgba(0, 58, 47, 0.09);
+    0 18px 38px rgba(0, 0, 0, 0.09);
 }
 
 /* =====================================
-   AREA GAMBAR HP
+   FRAME HP HITAM
 ===================================== */
 
 .testimoni-image-wrapper {
   position: relative;
 
   width: 100%;
+  max-width: 250px;
   height: 485px;
 
-  background: #ffffff;
+  margin: 0 auto;
+
+  background: linear-gradient(
+    145deg,
+    #333333 0%,
+    #090909 35%,
+    #1b1b1b 70%,
+    #050505 100%
+  );
+
+  border: 3px solid #161616;
+  border-radius: 37px;
+
+  padding: 8px;
+
+  box-sizing: border-box;
   overflow: hidden;
 
+  box-shadow:
+    0 0 0 1px #555555,
+    0 12px 26px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+
   touch-action: pan-y;
+}
+
+/* =====================================
+   KAMERA / DYNAMIC ISLAND HP
+===================================== */
+
+.testimoni-image-wrapper::before {
+  content: "";
+
+  position: absolute;
+  top: 13px;
+  left: 50%;
+
+  width: 70px;
+  height: 19px;
+
+  background: #050505;
+  border-radius: 999px;
+
+  transform: translateX(-50%);
+  z-index: 10;
+
+  box-shadow:
+    0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+/* =====================================
+   LAYAR HP
+===================================== */
+
+.testimoni-screen {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  background: #ffffff;
+  border-radius: 27px;
+
+  overflow: hidden;
 }
 
 /* =====================================
@@ -154,10 +219,13 @@
   flex: 0 0 100%;
 
   width: 100%;
+  min-width: 100%;
   height: 100%;
 
-  padding: 7px;
+  padding: 0;
   box-sizing: border-box;
+
+  background: #ffffff;
 }
 
 /* =====================================
@@ -173,7 +241,7 @@
   object-fit: contain;
   object-position: center;
 
-  border-radius: 8px;
+  border-radius: 25px;
 
   user-select: none;
   -webkit-user-drag: none;
@@ -186,7 +254,7 @@
 .testimoni-nav {
   position: absolute;
   top: 50%;
-  z-index: 5;
+  z-index: 20;
 
   display: flex;
   align-items: center;
@@ -196,11 +264,11 @@
   height: 32px;
   padding: 0;
 
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid #e5eeee;
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid #dedede;
   border-radius: 50%;
 
-  color: #005443;
+  color: #050505;
   font-size: 14px;
   font-weight: 700;
 
@@ -210,7 +278,7 @@
   transform: translateY(-50%);
 
   box-shadow:
-    0 4px 14px rgba(0, 0, 0, 0.1);
+    0 4px 14px rgba(0, 0, 0, 0.12);
 
   transition:
     opacity 0.2s ease,
@@ -222,7 +290,7 @@
 ===================================== */
 
 .testimoni-prev {
-  left: 10px;
+  left: 8px;
 }
 
 /* =====================================
@@ -230,7 +298,7 @@
 ===================================== */
 
 .testimoni-next {
-  right: 10px;
+  right: 8px;
 }
 
 /* =====================================
@@ -244,12 +312,30 @@
 
 .testimoni-nav:hover {
   background: #ffe5a0;
+  color: #050505;
 }
 
 .testimoni-nav:focus-visible {
   opacity: 1;
   outline: 2px solid #d4af37;
   outline-offset: 2px;
+}
+
+/* =====================================
+   HANYA 1 GAMBAR
+===================================== */
+
+.testimoni-card[data-single="true"] .testimoni-nav {
+  display: none;
+}
+
+/* =====================================
+   SEMBUNYIKAN FRAME TANPA GAMBAR
+===================================== */
+
+.testimoni-card[hidden],
+.testimoni-slide[hidden] {
+  display: none !important;
 }
 
 /* =====================================
@@ -265,26 +351,34 @@
 ===================================== */
 
 @media (max-width: 1024px) {
+
   .testimoni-section {
     padding: 75px 24px 35px;
   }
 
   .testimoni-grid {
-    grid-template-columns: repeat(
-      3,
-      minmax(0, 1fr)
-    );
-
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     justify-content: center;
     gap: 16px;
   }
 
-  .testimoni-image-wrapper {
-    height: 420px;
+  .testimoni-card {
+    padding: 15px 9px;
   }
 
-  .testimoni-slide {
-    padding: 6px;
+  .testimoni-image-wrapper {
+    max-width: 100%;
+    height: 420px;
+    border-radius: 32px;
+    padding: 7px;
+  }
+
+  .testimoni-screen {
+    border-radius: 24px;
+  }
+
+  .testimoni-slide img {
+    border-radius: 22px;
   }
 }
 
@@ -293,6 +387,7 @@
 ===================================== */
 
 @media (max-width: 768px) {
+
   .testimoni-section {
     padding: 65px 20px 30px;
   }
@@ -307,21 +402,14 @@
   }
 
   .testimoni-grid {
-    grid-template-columns: repeat(
-      2,
-      minmax(0, 285px)
-    );
-
+    grid-template-columns: repeat(2, minmax(0, 285px));
     justify-content: center;
     gap: 16px;
   }
 
   .testimoni-image-wrapper {
+    max-width: 250px;
     height: 450px;
-  }
-
-  .testimoni-slide {
-    padding: 7px;
   }
 
   .testimoni-nav {
@@ -334,6 +422,7 @@
 ===================================== */
 
 @media (max-width: 480px) {
+
   .testimoni-section {
     padding: 55px 16px 28px;
   }
@@ -359,29 +448,33 @@
 
   .testimoni-grid {
     grid-template-columns: minmax(0, 285px);
-
     justify-content: center;
     gap: 18px;
   }
 
   .testimoni-card {
-    border-radius: 17px;
+    padding: 17px 12px;
+    border-radius: 20px;
   }
 
   .testimoni-image-wrapper {
+    width: 100%;
+    max-width: 250px;
     height: 485px;
+    border-radius: 37px;
+    padding: 8px;
   }
 
-  .testimoni-slide {
-    padding: 7px;
+  .testimoni-screen {
+    border-radius: 27px;
   }
 
   .testimoni-slide img {
     width: 100%;
     height: 100%;
-
     object-fit: contain;
     object-position: center;
+    border-radius: 25px;
   }
 
   .testimoni-nav {
@@ -394,6 +487,7 @@
 ===================================== */
 
 @media (max-width: 340px) {
+
   .testimoni-section {
     padding-left: 12px;
     padding-right: 12px;
@@ -413,6 +507,7 @@
 ===================================== */
 
 @media (prefers-reduced-motion: reduce) {
+
   .testimoni-card,
   .testimoni-track,
   .testimoni-nav {

@@ -6,16 +6,11 @@
 .faq-section {
   position: relative;
   width: 100%;
-
   padding: 65px 24px 90px;
   margin: 0;
-
   background: #fdfaf5;
-
-  /* HILANGKAN GARIS DOBEL */
   border: none;
   box-shadow: none;
-
   font-family: "Plus Jakarta Sans", Arial, sans-serif;
 }
 
@@ -47,22 +42,17 @@
 
 .faq-heading {
   margin: 0 0 14px;
-
-  color: #005443;
-
+  color: #c5a04a;
   font-size: clamp(28px, 3vw, 36px);
   font-weight: 800;
-
   line-height: 1.25;
   letter-spacing: -1.4px;
 }
 
 .faq-subtitle {
   margin: 0;
-
-  color: #71968c;
-
-  font-size: 13px;
+  color: #8b8173;
+  font-size: 18px;
   font-weight: 400;
   line-height: 1.8;
 }
@@ -75,10 +65,8 @@
   width: 100%;
   max-width: 736px;
   margin: 0 auto;
-
   display: flex;
   flex-direction: column;
-
   gap: 12px;
 }
 
@@ -88,29 +76,25 @@
 
 .faq-item {
   width: 100%;
-
   background: #ffffff;
-
-  border: 1px solid #e4eeed;
+  border: 1px solid #eee5d6;
   border-radius: 16px;
-
   overflow: hidden;
-
-  box-shadow: 0 5px 22px rgba(0, 65, 52, 0.025);
-
+  box-shadow: 0 5px 22px rgba(104, 79, 34, 0.035);
   transition:
     border-color 0.25s ease,
-    box-shadow 0.25s ease;
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
 }
 
 .faq-item:hover {
-  border-color: #d0e1dd;
+  border-color: #d9c493;
 }
 
 .faq-item[open] {
-  border-color: #d0e1dd;
-
-  box-shadow: 0 9px 25px rgba(0, 65, 52, 0.04);
+  background: #fffdf9;
+  border-color: #d6bd83;
+  box-shadow: 0 9px 25px rgba(104, 79, 34, 0.065);
 }
 
 /* =====================================
@@ -121,15 +105,10 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   gap: 20px;
-
   min-height: 64px;
-
   padding: 16px 24px;
-
   cursor: pointer;
-
   list-style: none;
 }
 
@@ -142,11 +121,9 @@
 }
 
 .faq-question-text {
-  color: #005443;
-
-  font-size: 14px;
+  color: #514536;
+  font-size: 18px;
   font-weight: 700;
-
   line-height: 1.65;
 }
 
@@ -156,34 +133,38 @@
 
 .faq-icon {
   position: relative;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 32px;
   height: 32px;
-
   flex-shrink: 0;
-
-  border: 1px solid #d7e6e3;
+  border: 1px solid #e7d8b5;
   border-radius: 50%;
+  background: #fffaf0;
+  color: #b18a36;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
 
-  background: #ffffff;
+.faq-item:hover .faq-icon {
+  border-color: #c5a04a;
+}
 
-  color: #005443;
+.faq-item[open] .faq-icon {
+  background: #c5a04a;
+  border-color: #c5a04a;
+  color: #ffffff;
 }
 
 .faq-icon-horizontal,
 .faq-icon-vertical {
   position: absolute;
-
   display: block;
-
   background: currentColor;
-
   border-radius: 2px;
-
   transition: transform 0.2s ease;
 }
 
@@ -211,16 +192,11 @@
 
 .faq-answer p {
   margin: 0;
-
   padding-top: 16px;
-
-  border-top: 1px solid #edf1ee;
-
-  color: #52776e;
-
-  font-size: 13px;
+  border-top: 1px solid #f0e8da;
+  color: #817565;
+  font-size: 18px;
   font-weight: 400;
-
   line-height: 1.9;
 }
 
@@ -229,7 +205,7 @@
 ===================================== */
 
 .faq-question:focus-visible {
-  outline: 2px solid #b78a4b;
+  outline: 2px solid #c5a04a;
   outline-offset: -4px;
   border-radius: 14px;
 }
@@ -311,7 +287,6 @@
 
   .faq-answer p {
     padding-top: 13px;
-
     font-size: 12px;
     line-height: 1.85;
   }
@@ -323,6 +298,7 @@
 
 @media (prefers-reduced-motion: reduce) {
   .faq-item,
+  .faq-icon,
   .faq-icon-horizontal,
   .faq-icon-vertical {
     transition: none;

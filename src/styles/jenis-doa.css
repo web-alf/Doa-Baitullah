@@ -4,7 +4,7 @@
 ========================================= */
 
 .jenis-doa {
-  /* PENTING: supaya garis berada di atas section ini */
+  /* Supaya garis berada di atas section */
   position: relative;
 
   width: 100%;
@@ -12,12 +12,11 @@
 
   padding: 45px 24px 65px;
 
-  /* Background berbeda dari Ruang Doa */
+  /* BACKGROUND CREAM */
   background: #fff8ed;
 
   font-family: Arial, Helvetica, sans-serif;
 
-  /* Garis tambahan bawaan dihilangkan */
   border: none;
   box-shadow: none;
 }
@@ -38,7 +37,6 @@
   width: 100%;
   height: 1px;
 
-  /* Garis lebih tipis dan lembut */
   background-color: rgba(145, 115, 65, 0.10);
 
   z-index: 5;
@@ -70,10 +68,14 @@
   text-align: center;
 }
 
+/* =========================================
+   JUDUL UTAMA - GOLD
+========================================= */
+
 .jenis-doa-title {
   margin: 0 0 14px;
 
-  color: #005443;
+  color: #D4AF37;
 
   font-size: clamp(27px, 3vw, 36px);
   font-weight: 800;
@@ -82,7 +84,7 @@
 }
 
 /* =========================================
-   SUBTITLE LURUS SATU BARIS
+   SUBTITLE - HITAM
 ========================================= */
 
 .jenis-doa-subtitle {
@@ -91,9 +93,9 @@
 
   margin: 0 auto;
 
-  color: #65887e;
+  color: #292929;
 
-  font-size: 13px;
+  font-size: 18px;
   font-weight: 400;
   line-height: 1.8;
 
@@ -101,6 +103,7 @@
 }
 
 /* Subtitle satu baris di desktop */
+
 @media (min-width: 1025px) {
   .jenis-doa-subtitle {
     white-space: nowrap;
@@ -133,10 +136,12 @@
 
   background: #ffffff;
 
-  border: 1px solid #e9f0ed;
+  /* BORDER NETRAL */
+  border: 1px solid #e9e4db;
   border-radius: 18px;
 
-  box-shadow: 0 8px 24px rgba(0, 57, 45, 0.035);
+  /* BAYANGAN HITAM LEMBUT */
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.035);
 
   transition:
     transform 0.2s ease,
@@ -144,16 +149,20 @@
     border-color 0.2s ease;
 }
 
+/* =========================================
+   HOVER KARTU
+========================================= */
+
 .jenis-doa-card:hover {
   transform: translateY(-4px);
 
   border-color: #e4d19b;
 
-  box-shadow: 0 12px 30px rgba(0, 57, 45, 0.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
 }
 
 /* =========================================
-   ICON
+   ICON - CREAM + GOLD
 ========================================= */
 
 .jenis-doa-icon {
@@ -166,39 +175,42 @@
 
   margin-bottom: 18px;
 
-  background: #f2f7f3;
+  /* BACKGROUND CREAM */
+  background: #fff8ed;
 
   border: 1px solid #e8d8a5;
   border-radius: 50%;
+
+  color: #050505;
 
   font-size: 20px;
   line-height: 1;
 }
 
 /* =========================================
-   JUDUL KARTU
+   JUDUL KARTU - HITAM
 ========================================= */
 
 .jenis-doa-card-title {
   margin: 0 0 11px;
 
-  color: #004b3d;
+  color: #050505;
 
-  font-size: 15px;
+  font-size: 18px;
   font-weight: 700;
   line-height: 1.4;
 }
 
 /* =========================================
-   DESKRIPSI KARTU
+   DESKRIPSI KARTU - HITAM
 ========================================= */
 
 .jenis-doa-card-description {
   margin: 0;
 
-  color: #65887e;
+  color: #292929;
 
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 400;
   line-height: 1.8;
 }
@@ -208,6 +220,7 @@
 ========================================= */
 
 @media (max-width: 1024px) {
+
   .jenis-doa {
     padding: 40px 24px 60px;
   }
@@ -235,6 +248,7 @@
 ========================================= */
 
 @media (max-width: 768px) {
+
   .jenis-doa {
     padding: 35px 20px 55px;
   }
@@ -269,6 +283,7 @@
 ========================================= */
 
 @media (max-width: 540px) {
+
   .jenis-doa {
     padding: 30px 16px 50px;
   }

@@ -10,6 +10,7 @@
   padding: 105px 24px 105px;
 
   background: #fdfaf5;
+
   font-family: "Plus Jakarta Sans", Arial, sans-serif;
 }
 
@@ -51,18 +52,20 @@
   letter-spacing: -1.8px;
 }
 
-/* Baris pertama: hijau tua */
+/* BARIS PERTAMA - GOLD */
+
 .cara-title-dark {
-  color: #005443;
+  color: #D4AF37;
 }
 
-/* Baris kedua: hijau soft */
+/* BARIS KEDUA - GOLD */
+
 .cara-title-soft {
-  color: #39786b;
+  color: #D4AF37;
 }
 
 /* =========================================
-   SUBTITLE
+   SUBTITLE - HITAM
 ========================================= */
 
 .cara-subtitle {
@@ -70,7 +73,8 @@
   max-width: 335px;
   margin: 0;
 
-  color: #71968c;
+  color: #292929;
+
   font-size: 13px;
   font-weight: 400;
   line-height: 1.8;
@@ -89,7 +93,7 @@
 }
 
 /* =========================================
-   GARIS PENGHUBUNG ANGKA
+   GARIS PENGHUBUNG ANGKA - GOLD
 ========================================= */
 
 .cara-steps::before {
@@ -101,6 +105,7 @@
   right: 27px;
 
   height: 1px;
+
   background: #efdbb6;
 
   z-index: 0;
@@ -118,7 +123,7 @@
 }
 
 /* =========================================
-   KOTAK ANGKA
+   KOTAK ANGKA - GOLD
 ========================================= */
 
 .cara-number {
@@ -132,10 +137,12 @@
   margin-bottom: 42px;
 
   background: #ffffff;
+
   border: 1px solid #f0d9a9;
   border-radius: 16px;
 
   color: #d79b25;
+
   font-size: 17px;
   font-weight: 500;
   line-height: 1;
@@ -144,17 +151,16 @@
 }
 
 /* =========================================
-   JUDUL SETIAP LANGKAH
-   LEBIH BESAR DAN LEBIH BOLD
+   JUDUL SETIAP LANGKAH - HITAM
 ========================================= */
 
 .cara-step-title {
   margin: 0 0 10px;
 
-  color: #005443;
+  color: #050505;
 
   font-family: "Plus Jakarta Sans", Arial, sans-serif;
-  font-size: 13px;
+  font-size: 18px;
   font-weight: 800;
 
   line-height: 1.5;
@@ -163,15 +169,15 @@
 }
 
 /* =========================================
-   DESKRIPSI LANGKAH
+   DESKRIPSI LANGKAH - HITAM
 ========================================= */
 
 .cara-step-description {
   margin: 0;
 
-  color: #71968c;
+  color: #292929;
 
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 400;
   line-height: 1.85;
 }
@@ -181,6 +187,7 @@
 ========================================= */
 
 @media (max-width: 1024px) {
+
   .cara-menitipkan {
     padding: 48px 20px 65px;
   }
@@ -203,18 +210,23 @@
 
   .cara-subtitle {
     max-width: 360px;
+
+    color: #292929;
+
     font-size: 12px;
     line-height: 1.8;
   }
 
-  /* Langkah berubah vertikal */
+  /* LANGKAH BERUBAH VERTIKAL */
+
   .cara-steps {
     display: flex;
     flex-direction: column;
     gap: 38px;
   }
 
-  /* Garis vertikal */
+  /* GARIS VERTIKAL */
+
   .cara-steps::before {
     top: 28px;
     bottom: 28px;
@@ -223,6 +235,8 @@
 
     width: 1px;
     height: auto;
+
+    background: #efdbb6;
   }
 
   .cara-step {
@@ -239,6 +253,8 @@
     width: 56px;
     height: 56px;
     margin: 0;
+
+    color: #d79b25;
   }
 
   .cara-step-content {
@@ -249,6 +265,8 @@
   .cara-step-title {
     margin-bottom: 9px;
 
+    color: #050505;
+
     font-size: 13px;
     font-weight: 800;
     letter-spacing: 0.6px;
@@ -256,6 +274,9 @@
 
   .cara-step-description {
     max-width: 360px;
+
+    color: #292929;
+
     font-size: 12px;
     line-height: 1.9;
   }
@@ -266,6 +287,7 @@
 ========================================= */
 
 @media (max-width: 420px) {
+
   .cara-menitipkan {
     padding: 42px 16px 55px;
   }
@@ -304,12 +326,15 @@
   }
 
   .cara-step-title {
+    color: #050505;
+
     font-size: 12px;
     font-weight: 800;
     letter-spacing: 0.4px;
   }
 
   .cara-step-description {
+    color: #292929;
     font-size: 12px;
   }
 }

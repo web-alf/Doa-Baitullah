@@ -7,13 +7,13 @@
   width: 100%;
   background: #fdfaf5;
 
-  /* Atas dan bawah sama-sama 75px */
   padding: 75px 24px;
 
   border: none;
   box-shadow: none;
 
   font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
 }
 
 /* ======================================
@@ -41,7 +41,7 @@
 }
 
 /* ======================================
-   LABEL KECIL
+   LABEL KECIL - GOLD
 ====================================== */
 
 .ruang-doa-label {
@@ -50,9 +50,9 @@
   padding: 6px 11px;
   margin-bottom: 20px;
 
-  color: #006452;
-  background: #f5f1e8;
-  border: 1px solid #e8d8a5;
+  color: #D4AF37;
+  background: #fdf8e9;
+  border: 1px solid #D4AF37;
   border-radius: 999px;
 
   font-size: 9px;
@@ -61,15 +61,16 @@
 }
 
 /* ======================================
-   JUDUL
+   JUDUL UTAMA - GOLD
 ====================================== */
 
 .ruang-doa-title {
   margin: 0 0 24px;
 
-  color: #005443;
+  color: #D4AF37;
+  font-family: Arial, Helvetica, sans-serif;
   font-size: clamp(28px, 2.7vw, 38px);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.12;
   letter-spacing: -1.4px;
 }
@@ -81,6 +82,7 @@
 .ruang-doa-quote {
   width: 100%;
   padding: 26px 25px;
+  box-sizing: border-box;
 
   background: #fff9ef;
   border: 1px solid #f0dfb7;
@@ -89,11 +91,15 @@
   box-shadow: 0 8px 25px rgba(90, 69, 25, 0.025);
 }
 
+/* ======================================
+   ISI KUTIPAN - HITAM
+====================================== */
+
 .ruang-doa-quote p {
   margin: 0 0 16px;
 
-  color: #55796f;
-  font-size: 13px;
+  color: #292929;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.9;
 }
@@ -103,7 +109,7 @@
 }
 
 /* ======================================
-   TEKS BAWAH KUTIPAN
+   TEKS BAWAH KUTIPAN - GOLD
 ====================================== */
 
 .ruang-doa-signature {
@@ -111,41 +117,54 @@
   align-items: center;
   gap: 12px;
 
-  color: #789a8f;
-  font-size: 9px;
-  font-weight: 600;
+  color: #D4AF37;
+  font-size: 13px;
+  font-weight: 700;
   letter-spacing: 1.5px;
 }
+
+/* ======================================
+   GARIS GOLD
+====================================== */
 
 .ruang-doa-line {
   width: 34px;
   height: 1px;
   flex-shrink: 0;
-  background: #d4af37;
+
+  background: #D4AF37;
 }
 
 /* ======================================
-   FOTO KANAN
+   FOTO KANAN - CARD TANPA RUANG KOSONG
 ====================================== */
 
 .ruang-doa-image-wrap {
   width: 100%;
-  height: 420px;
+  height: auto;
+
+  position: relative;
 
   overflow: hidden;
   border-radius: 22px;
 
-  background: #e9e0d2;
-  box-shadow: 0 14px 30px rgba(0, 54, 43, 0.08);
+  background: transparent;
+
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.10);
 }
 
 .ruang-doa-image {
   display: block;
-  width: 100%;
-  height: 100%;
 
-  object-fit: cover;
+  width: 100%;
+  height: auto;
+
+  max-width: 100%;
+
+  object-fit: contain;
   object-position: center;
+
+  border-radius: 0;
 }
 
 /* ======================================
@@ -153,6 +172,7 @@
 ====================================== */
 
 @media (max-width: 1024px) {
+
   .ruang-doa {
     padding: 55px 24px 35px;
   }
@@ -166,7 +186,15 @@
   }
 
   .ruang-doa-image-wrap {
-    height: 380px;
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+  }
+
+  .ruang-doa-image {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 
   .ruang-doa-quote {
@@ -179,6 +207,7 @@
 ====================================== */
 
 @media (max-width: 768px) {
+
   .ruang-doa {
     padding: 45px 20px 30px;
   }
@@ -206,9 +235,24 @@
     line-height: 1.85;
   }
 
+  /* FOTO MOBILE */
+
   .ruang-doa-image-wrap {
-    height: 390px;
+    width: 100%;
+    height: auto;
+
     border-radius: 18px;
+    overflow: hidden;
+  }
+
+  .ruang-doa-image {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+    object-position: center;
   }
 }
 
@@ -217,6 +261,7 @@
 ====================================== */
 
 @media (max-width: 420px) {
+
   .ruang-doa {
     padding: 40px 16px 25px;
   }
@@ -238,7 +283,20 @@
     letter-spacing: 1px;
   }
 
+  /* FOTO MOBILE KECIL */
+
   .ruang-doa-image-wrap {
-    height: 340px;
+    width: 100%;
+    height: auto;
+
+    border-radius: 16px;
+  }
+
+  .ruang-doa-image {
+    width: 100%;
+    height: auto;
+
+    object-fit: contain;
+    object-position: center;
   }
 }

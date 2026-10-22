@@ -27,7 +27,7 @@
 }
 
 /* =====================================
-   OVERLAY HIJAU GELAP
+   OVERLAY HITAM GELAP
 ===================================== */
 
 .sejenak-overlay {
@@ -37,9 +37,9 @@
 
   background: linear-gradient(
     180deg,
-    rgba(0, 43, 37, 0.86) 0%,
-    rgba(0, 42, 36, 0.88) 52%,
-    rgba(0, 35, 30, 0.94) 100%
+    rgba(0, 0, 0, 0.86) 0%,
+    rgba(0, 0, 0, 0.88) 52%,
+    rgba(0, 0, 0, 0.94) 100%
   );
 }
 
@@ -74,7 +74,9 @@
   margin-bottom: 24px;
   padding: 5px 15px;
 
-  color: #dce8e2;
+  /* PUTIH SOFT */
+  color: #e8e8e8;
+
   background: rgba(255, 255, 255, 0.09);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 30px;
@@ -119,10 +121,10 @@
   max-width: 100%;
   margin: 12px auto 0;
 
-  /* Fallback warna emas */
+  /* FALLBACK GOLD */
   color: #f1c75c;
 
-  /* Gradasi gold kiri ke kanan */
+  /* GRADASI GOLD TETAP */
   background-image: linear-gradient(
     90deg,
     #ffe9a3 0%,
@@ -146,7 +148,7 @@
 
 .sejenak-quote {
   width: 100%;
-  max-width: 450px;
+  max-width: 500px;
 
   margin-top: 29px;
   padding: 25px 30px;
@@ -162,8 +164,10 @@
 .sejenak-quote p {
   margin: 0;
 
-  color: #e2e8e5;
-  font-size: 11px;
+  /* PUTIH SOFT, BUKAN HIJAU */
+  color: #e8e8e8;
+
+  font-size: 18px;
   font-weight: 400;
   line-height: 2;
 }
@@ -177,6 +181,7 @@
 ===================================== */
 
 @media (max-width: 768px) {
+
   .sejenak-section {
     min-height: 470px;
     padding: 80px 20px;
@@ -206,6 +211,7 @@
 ===================================== */
 
 @media (max-width: 480px) {
+
   .sejenak-section {
     min-height: 460px;
     padding: 75px 18px;
