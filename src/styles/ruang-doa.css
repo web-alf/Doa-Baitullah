@@ -1,0 +1,244 @@
+
+/* ======================================
+   SECTION RUANG UNTUK BERHENTI SEJENAK
+====================================== */
+
+.ruang-doa {
+  width: 100%;
+  background: #fdfaf5;
+
+  /* Atas dan bawah sama-sama 75px */
+  padding: 75px 24px;
+
+  border: none;
+  box-shadow: none;
+
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ======================================
+   CONTAINER
+====================================== */
+
+.ruang-doa-container {
+  width: 100%;
+  max-width: 1096px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 48px;
+}
+
+/* ======================================
+   KONTEN KIRI
+====================================== */
+
+.ruang-doa-content {
+  width: 100%;
+  min-width: 0;
+}
+
+/* ======================================
+   LABEL KECIL
+====================================== */
+
+.ruang-doa-label {
+  display: inline-block;
+
+  padding: 6px 11px;
+  margin-bottom: 20px;
+
+  color: #006452;
+  background: #f5f1e8;
+  border: 1px solid #e8d8a5;
+  border-radius: 999px;
+
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+}
+
+/* ======================================
+   JUDUL
+====================================== */
+
+.ruang-doa-title {
+  margin: 0 0 24px;
+
+  color: #005443;
+  font-size: clamp(28px, 2.7vw, 38px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -1.4px;
+}
+
+/* ======================================
+   KOTAK KUTIPAN
+====================================== */
+
+.ruang-doa-quote {
+  width: 100%;
+  padding: 26px 25px;
+
+  background: #fff9ef;
+  border: 1px solid #f0dfb7;
+  border-radius: 16px;
+
+  box-shadow: 0 8px 25px rgba(90, 69, 25, 0.025);
+}
+
+.ruang-doa-quote p {
+  margin: 0 0 16px;
+
+  color: #55796f;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.9;
+}
+
+.ruang-doa-quote p:last-of-type {
+  margin-bottom: 22px;
+}
+
+/* ======================================
+   TEKS BAWAH KUTIPAN
+====================================== */
+
+.ruang-doa-signature {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  color: #789a8f;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+}
+
+.ruang-doa-line {
+  width: 34px;
+  height: 1px;
+  flex-shrink: 0;
+  background: #d4af37;
+}
+
+/* ======================================
+   FOTO KANAN
+====================================== */
+
+.ruang-doa-image-wrap {
+  width: 100%;
+  height: 420px;
+
+  overflow: hidden;
+  border-radius: 22px;
+
+  background: #e9e0d2;
+  box-shadow: 0 14px 30px rgba(0, 54, 43, 0.08);
+}
+
+.ruang-doa-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ======================================
+   TABLET
+====================================== */
+
+@media (max-width: 1024px) {
+  .ruang-doa {
+    padding: 55px 24px 35px;
+  }
+
+  .ruang-doa-container {
+    gap: 32px;
+  }
+
+  .ruang-doa-title {
+    font-size: 31px;
+  }
+
+  .ruang-doa-image-wrap {
+    height: 380px;
+  }
+
+  .ruang-doa-quote {
+    padding: 22px;
+  }
+}
+
+/* ======================================
+   MOBILE
+====================================== */
+
+@media (max-width: 768px) {
+  .ruang-doa {
+    padding: 45px 20px 30px;
+  }
+
+  .ruang-doa-container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .ruang-doa-title {
+    font-size: clamp(27px, 6vw, 34px);
+    letter-spacing: -1px;
+  }
+
+  .desktop-break {
+    display: none;
+  }
+
+  .ruang-doa-quote {
+    padding: 22px 20px;
+  }
+
+  .ruang-doa-quote p {
+    font-size: 12px;
+    line-height: 1.85;
+  }
+
+  .ruang-doa-image-wrap {
+    height: 390px;
+    border-radius: 18px;
+  }
+}
+
+/* ======================================
+   MOBILE KECIL
+====================================== */
+
+@media (max-width: 420px) {
+  .ruang-doa {
+    padding: 40px 16px 25px;
+  }
+
+  .ruang-doa-label {
+    font-size: 8px;
+  }
+
+  .ruang-doa-title {
+    font-size: 27px;
+  }
+
+  .ruang-doa-quote {
+    padding: 19px 17px;
+  }
+
+  .ruang-doa-signature {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+
+  .ruang-doa-image-wrap {
+    height: 340px;
+  }
+}

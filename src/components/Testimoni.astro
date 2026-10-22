@@ -1,0 +1,432 @@
+
+---
+import "../styles/testimoni.css";
+
+/* =====================================
+   IMPORT GAMBAR ASLI
+===================================== */
+
+import gambar24Feb from "../assets/image/24_02_26.webp";
+import gambar19Feb from "../assets/image/19_02_26.webp";
+import gambar20Feb from "../assets/image/20_02_26.webp";
+import gambar4Juni from "../assets/image/4_6_26.webp";
+import gambar31Mei from "../assets/image/31_5_26.webp";
+import gambar28Feb from "../assets/image/28_02_26.webp";
+import gambar13Mei from "../assets/image/13_5_26.webp";
+
+/* =====================================
+   DATA 3 SLIDER TESTIMONI
+===================================== */
+
+const sliders = [
+  {
+    nomor: "01",
+    minDelay: 2500,
+    maxDelay: 4000,
+    gambar: [
+      gambar24Feb,
+      gambar19Feb,
+      gambar20Feb,
+    ],
+  },
+  {
+    nomor: "02",
+    minDelay: 3200,
+    maxDelay: 4800,
+    gambar: [
+      gambar19Feb,
+      gambar4Juni,
+      gambar31Mei,
+    ],
+  },
+  {
+    nomor: "03",
+    minDelay: 2800,
+    maxDelay: 4500,
+    gambar: [
+      gambar28Feb,
+      gambar19Feb,
+      gambar13Mei,
+    ],
+  },
+];
+---
+
+<section
+  class="testimoni-section"
+  id="testimoni"
+  aria-labelledby="testimoni-heading"
+>
+  <div class="testimoni-container">
+
+    <!-- =====================================
+         HEADER
+    ===================================== -->
+
+    <div class="testimoni-header">
+
+      <h2
+        id="testimoni-heading"
+        class="testimoni-heading"
+      >
+        Mereka yang Pernah Menitipkan
+        <br class="testimoni-desktop-break" />
+        Doanya
+      </h2>
+
+      <p class="testimoni-subtitle">
+        Kisah sederhana dari yang rindu Baitullah
+      </p>
+
+    </div>
+
+    <!-- =====================================
+         GRID 3 SLIDER
+    ===================================== -->
+
+    <div class="testimoni-grid">
+
+      {sliders.map((slider) => (
+        <div
+          class="testimoni-card"
+          data-testimoni-slider
+          data-min-delay={slider.minDelay}
+          data-max-delay={slider.maxDelay}
+        >
+
+          <!-- AREA GAMBAR -->
+          <div class="testimoni-image-wrapper">
+
+            <!-- TRACK HORIZONTAL -->
+            <div class="testimoni-track">
+
+              {slider.gambar.map((gambar, index) => (
+                <div class="testimoni-slide">
+
+                  <img
+                    src={gambar.src}
+                    alt={`Testimoni kolom ${slider.nomor} gambar ${index + 1}`}
+                    loading="lazy"
+                    decoding="async"
+                    draggable="false"
+                  />
+
+                </div>
+              ))}
+
+            </div>
+
+            <!-- PANAH KIRI -->
+            <button
+              class="testimoni-nav testimoni-prev"
+              type="button"
+              aria-label={`Gambar sebelumnya kolom ${slider.nomor}`}
+            >
+              &#10094;
+            </button>
+
+            <!-- PANAH KANAN -->
+            <button
+              class="testimoni-nav testimoni-next"
+              type="button"
+              aria-label={`Gambar berikutnya kolom ${slider.nomor}`}
+            >
+              &#10095;
+            </button>
+
+          </div>
+
+        </div>
+      ))}
+
+    </div>
+
+  </div>
+</section>
+
+<!-- =====================================
+     SCRIPT SLIDER OTOMATIS ACAK
+===================================== -->
+
+<script>
+  function initTestimoniSliders() {
+    const sliderElements =
+      document.querySelectorAll<HTMLElement>(
+        "[data-testimoni-slider]"
+      );
+
+    sliderElements.forEach((slider) => {
+      // Hindari inisialisasi ganda
+      if (slider.dataset.initialized === "true") {
+        return;
+      }
+
+      slider.dataset.initialized = "true";
+
+      const track =
+        slider.querySelector<HTMLElement>(
+          ".testimoni-track"
+        );
+
+      const slides =
+        slider.querySelectorAll<HTMLElement>(
+          ".testimoni-slide"
+        );
+
+      const prevButton =
+        slider.querySelector<HTMLButtonElement>(
+          ".testimoni-prev"
+        );
+
+      const nextButton =
+        slider.querySelector<HTMLButtonElement>(
+          ".testimoni-next"
+        );
+
+      if (!track || slides.length < 2) {
+        return;
+      }
+
+      /* =====================================
+         PENGATURAN SLIDER
+      ===================================== */
+
+      const totalSlides = slides.length;
+
+      const minDelay = Number(
+        slider.dataset.minDelay || 2500
+      );
+
+      const maxDelay = Number(
+        slider.dataset.maxDelay || 4000
+      );
+
+      const reducedMotion = window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+      );
+
+      let currentIndex = 0;
+
+      let timer: ReturnType<typeof setTimeout> | null =
+        null;
+
+      let isTouching = false;
+
+      let touchStartX = 0;
+
+      /* =====================================
+         PINDAH GAMBAR
+      ===================================== */
+
+      function goToSlide(index: number) {
+        currentIndex = Math.max(
+          0,
+          Math.min(index, totalSlides - 1)
+        );
+
+        if (!track) return;
+
+        track.style.transform =
+          `translate3d(-${currentIndex * 100}%, 0, 0)`;
+      }
+
+      /* =====================================
+         RANDOM DELAY
+      ===================================== */
+
+      function getRandomDelay() {
+        return Math.floor(
+          Math.random() *
+            (maxDelay - minDelay + 1)
+        ) + minDelay;
+      }
+
+      /* =====================================
+         HENTIKAN TIMER
+      ===================================== */
+
+      function stopAutoSlide() {
+        if (timer !== null) {
+          clearTimeout(timer);
+          timer = null;
+        }
+      }
+
+      /* =====================================
+         AUTO SLIDE KANAN-KIRI
+      ===================================== */
+
+      function startAutoSlide() {
+        stopAutoSlide();
+
+        if (
+          isTouching ||
+          reducedMotion.matches ||
+          document.hidden
+        ) {
+          return;
+        }
+
+        timer = setTimeout(() => {
+          // Pilih arah secara acak
+          let direction =
+            Math.random() < 0.5 ? -1 : 1;
+
+          // Kalau di gambar pertama, geser ke kanan
+          if (currentIndex === 0) {
+            direction = 1;
+          }
+
+          // Kalau di gambar terakhir, geser ke kiri
+          if (currentIndex === totalSlides - 1) {
+            direction = -1;
+          }
+
+          // Pindah satu gambar
+          goToSlide(currentIndex + direction);
+
+          // Jadwalkan gerakan berikutnya
+          startAutoSlide();
+        }, getRandomDelay());
+      }
+
+      /* =====================================
+         TOMBOL SEBELUMNYA
+      ===================================== */
+
+      prevButton?.addEventListener("click", () => {
+        const previousIndex =
+          currentIndex === 0
+            ? totalSlides - 1
+            : currentIndex - 1;
+
+        goToSlide(previousIndex);
+
+        startAutoSlide();
+      });
+
+      /* =====================================
+         TOMBOL BERIKUTNYA
+      ===================================== */
+
+      nextButton?.addEventListener("click", () => {
+        const nextIndex =
+          currentIndex === totalSlides - 1
+            ? 0
+            : currentIndex + 1;
+
+        goToSlide(nextIndex);
+
+        startAutoSlide();
+      });
+
+      /* =====================================
+         SWIPE MOBILE - MULAI
+      ===================================== */
+
+      slider.addEventListener(
+        "touchstart",
+        (event) => {
+          touchStartX =
+            event.touches[0].clientX;
+
+          isTouching = true;
+
+          stopAutoSlide();
+        },
+        { passive: true }
+      );
+
+      /* =====================================
+         SWIPE MOBILE - SELESAI
+      ===================================== */
+
+      slider.addEventListener(
+        "touchend",
+        (event) => {
+          const touchEndX =
+            event.changedTouches[0].clientX;
+
+          const distance =
+            touchStartX - touchEndX;
+
+          if (Math.abs(distance) > 40) {
+            if (distance > 0) {
+              // Swipe kiri = gambar berikutnya
+              const nextIndex =
+                currentIndex === totalSlides - 1
+                  ? 0
+                  : currentIndex + 1;
+
+              goToSlide(nextIndex);
+            } else {
+              // Swipe kanan = gambar sebelumnya
+              const previousIndex =
+                currentIndex === 0
+                  ? totalSlides - 1
+                  : currentIndex - 1;
+
+              goToSlide(previousIndex);
+            }
+          }
+
+          isTouching = false;
+
+          startAutoSlide();
+        },
+        { passive: true }
+      );
+
+      /* =====================================
+         SWIPE DIBATALKAN
+      ===================================== */
+
+      slider.addEventListener(
+        "touchcancel",
+        () => {
+          isTouching = false;
+          startAutoSlide();
+        }
+      );
+
+      /* =====================================
+         PERUBAHAN PREFERENSI ANIMASI
+      ===================================== */
+
+      reducedMotion.addEventListener(
+        "change",
+        startAutoSlide
+      );
+
+      /* =====================================
+         TAB BROWSER AKTIF / TIDAK
+      ===================================== */
+
+      document.addEventListener(
+        "visibilitychange",
+        startAutoSlide
+      );
+
+      /* =====================================
+         MULAI SLIDER
+      ===================================== */
+
+      goToSlide(0);
+
+      // Ketiga slider mulai otomatis
+      // dengan interval masing-masing
+      startAutoSlide();
+    });
+  }
+
+  /* =====================================
+     INISIALISASI ASTRO
+  ===================================== */
+
+  document.addEventListener(
+    "astro:page-load",
+    initTestimoniSliders
+  );
+
+  initTestimoniSliders();
+</script>

@@ -1,0 +1,650 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+/* =========================================
+   SECTION TITIPKAN DOA
+========================================= */
+
+.form-doa-section {
+  width: 100%;
+  padding: 85px 24px 95px;
+
+  background: #fff9ed;
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.form-doa-container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  align-items: start;
+  gap: 62px;
+}
+
+/* =========================================
+   BAGIAN KIRI
+========================================= */
+
+.form-doa-info {
+  padding-top: 34px;
+}
+
+.form-doa-heading {
+  margin: 0 0 20px;
+
+  color: #005443;
+  font-size: clamp(30px, 3.2vw, 43px);
+  font-weight: 800;
+  line-height: 1.06;
+  letter-spacing: -1.8px;
+  text-transform: uppercase;
+}
+
+.form-doa-heading span {
+  color: #39786b;
+  font-weight: 800;
+}
+
+.form-doa-intro {
+  max-width: 410px;
+  margin: 0;
+
+  color: #71968c;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.95;
+}
+
+/* =========================================
+   KEUNGGULAN - SESUAI REFERENSI
+========================================= */
+
+.form-doa-benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 34px;
+}
+
+/* =========================================
+   CARD KEUNGGULAN PUTIH
+========================================= */
+
+.form-doa-benefit {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  min-height: 68px;
+  padding: 13px 14px;
+
+  background: #ffffff;
+  border: 1px solid #e5eeee;
+  border-radius: 14px;
+
+  box-shadow: none;
+}
+
+/* =========================================
+   BULLET CHECKLIST HIJAU SOFT
+========================================= */
+
+.form-doa-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 32px;
+  height: 32px;
+
+  background: #e5f0ed;
+  border: none;
+  border-radius: 50%;
+
+  color: #006452;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+
+  box-shadow: none;
+}
+
+/* =========================================
+   TEKS KEUNGGULAN
+========================================= */
+
+.form-doa-benefit-content {
+  min-width: 0;
+}
+
+.form-doa-benefit-content h3 {
+  margin: 0 0 4px;
+
+  color: #005443;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.form-doa-benefit-content p {
+  margin: 0;
+
+  color: #71968c;
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+/* =========================================
+   CARD FORM KANAN - GOLD SOFT
+========================================= */
+
+.form-doa-card {
+  box-sizing: border-box;
+
+  width: 100%;
+  min-width: 0;
+  padding: 38px 34px 30px;
+
+  background: linear-gradient(
+    145deg,
+    #ffffff 0%,
+    #fffdf7 55%,
+    #fff8e9 100%
+  );
+
+  border: 1px solid #eed9a9;
+  border-radius: 22px;
+
+  box-shadow:
+    0 15px 45px rgba(163, 119, 35, 0.08);
+}
+
+.form-doa-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* =========================================
+   GRID FORM
+========================================= */
+
+.form-doa-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.form-doa-field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+/* =========================================
+   LABEL FORM GOLD
+========================================= */
+
+.form-doa-field label {
+  color: #a77b27;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 1.3px;
+}
+
+/* =========================================
+   INPUT, TEXTAREA, SELECT
+========================================= */
+
+.form-doa-field input,
+.form-doa-field textarea,
+.form-doa-field select {
+  box-sizing: border-box;
+
+  width: 100%;
+  min-width: 0;
+  padding: 13px 15px;
+
+  background: #fffbf2;
+  border: 1px solid #ead7ad;
+  border-radius: 10px;
+
+  color: #06483d;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.5;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.form-doa-field input {
+  height: 47px;
+}
+
+.form-doa-field textarea {
+  min-height: 135px;
+  resize: vertical;
+}
+
+.form-doa-field select {
+  height: 47px;
+  cursor: pointer;
+}
+
+/* =========================================
+   PLACEHOLDER
+========================================= */
+
+.form-doa-field input::placeholder,
+.form-doa-field textarea::placeholder {
+  color: #b6a17b;
+}
+
+/* =========================================
+   HOVER INPUT
+========================================= */
+
+.form-doa-field input:hover,
+.form-doa-field textarea:hover,
+.form-doa-field select:hover {
+  border-color: #d4af37;
+}
+
+/* =========================================
+   FOCUS INPUT GOLD
+========================================= */
+
+.form-doa-field input:focus,
+.form-doa-field textarea:focus,
+.form-doa-field select:focus {
+  background: #ffffff;
+  border-color: #d4af37;
+
+  box-shadow:
+    0 0 0 3px rgba(212, 175, 55, 0.15);
+}
+
+/* =========================================
+   PERSETUJUAN
+========================================= */
+
+.form-doa-consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 15px 14px;
+
+  background: #fff7e5;
+  border: 1px solid #ead29b;
+  border-radius: 10px;
+
+  cursor: pointer;
+}
+
+.form-doa-consent input {
+  width: 15px;
+  height: 15px;
+  margin: 1px 0 0;
+  flex-shrink: 0;
+
+  accent-color: #d4af37;
+  cursor: pointer;
+}
+
+.form-doa-consent span {
+  color: #927a4f;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   TOMBOL KIRIM - GOLD HERO
+========================================= */
+
+.form-doa-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 52px;
+  padding: 14px 20px;
+
+  background: linear-gradient(
+    180deg,
+    #ffe5a0 0%,
+    #d4af37 100%
+  );
+
+  border: none;
+  border-radius: 30px;
+
+  color: #06483d;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.8px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 24px rgba(212, 175, 55, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.form-doa-submit:hover {
+  background: linear-gradient(
+    180deg,
+    #ffebb5 0%,
+    #d4af37 100%
+  );
+
+  box-shadow:
+    0 12px 28px rgba(212, 175, 55, 0.25);
+
+  transform: translateY(-2px);
+}
+
+.form-doa-submit:active {
+  transform: translateY(0);
+}
+
+.form-doa-submit:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* =========================================
+   CATATAN FORM
+========================================= */
+
+.form-doa-note {
+  margin: -12px 0 0;
+
+  color: #a58d65;
+  font-size: 10px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+/* =========================================
+   STATUS FORM
+========================================= */
+
+.form-doa-status {
+  margin: 0;
+  padding: 12px 14px;
+
+  color: #80642e;
+  background: #fff7e5;
+  border: 1px solid #ead29b;
+  border-radius: 10px;
+
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* =========================================
+   HIDDEN ELEMENT
+========================================= */
+
+.form-doa-status[hidden],
+#form-titip-doa[hidden],
+.form-doa-success[hidden] {
+  display: none;
+}
+
+/* =========================================
+   TAMPILAN BERHASIL
+========================================= */
+
+.form-doa-success {
+  min-height: 390px;
+  padding: 38px 12px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+}
+
+/* =========================================
+   ICON BERHASIL GOLD
+========================================= */
+
+.form-doa-success-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 56px;
+  height: 56px;
+  margin-bottom: 25px;
+
+  background: linear-gradient(
+    180deg,
+    #ffe5a0 0%,
+    #d4af37 100%
+  );
+
+  color: #06483d;
+  border-radius: 50%;
+
+  font-size: 27px;
+  font-weight: 700;
+
+  box-shadow:
+    0 8px 20px rgba(212, 175, 55, 0.18);
+}
+
+/* =========================================
+   JUDUL BERHASIL
+========================================= */
+
+.form-doa-success-title {
+  margin: 0 0 12px;
+
+  color: #005443;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.5px;
+}
+
+.form-doa-success-description {
+  max-width: 380px;
+  margin: 0;
+
+  color: #71968c;
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+/* =========================================
+   TOMBOL KIRIM DOA LAGI
+========================================= */
+
+.form-doa-again {
+  margin-top: 25px;
+  padding: 11px 22px;
+
+  background: #fff9ed;
+  color: #a77b27;
+
+  border: 1px solid #d4af37;
+  border-radius: 30px;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.form-doa-again:hover {
+  background: #fff0c9;
+  border-color: #d4af37;
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+  .form-doa-section {
+    padding: 65px 24px 75px;
+  }
+
+  .form-doa-container {
+    gap: 32px;
+  }
+
+  .form-doa-info {
+    padding-top: 18px;
+  }
+
+  .form-doa-heading {
+    font-size: 34px;
+  }
+
+  .form-doa-card {
+    padding: 30px 24px;
+  }
+
+  .form-doa-grid {
+    gap: 12px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+  .form-doa-section {
+    padding: 55px 20px 65px;
+  }
+
+  .form-doa-container {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .form-doa-info {
+    padding-top: 0;
+  }
+
+  .form-doa-heading {
+    font-size: clamp(29px, 7vw, 38px);
+    letter-spacing: -1.3px;
+  }
+
+  .form-doa-intro {
+    max-width: 100%;
+    font-size: 12px;
+  }
+
+  .form-doa-benefits {
+    margin-top: 26px;
+  }
+
+  .form-doa-card {
+    padding: 28px 22px;
+    border-radius: 18px;
+  }
+}
+
+/* =========================================
+   MOBILE KECIL
+========================================= */
+
+@media (max-width: 480px) {
+  .form-doa-section {
+    padding: 45px 16px 55px;
+  }
+
+  .form-doa-heading {
+    font-size: 30px;
+  }
+
+  .form-doa-benefit {
+    min-height: 66px;
+    padding: 13px 14px;
+  }
+
+  .form-doa-card {
+    padding: 24px 17px;
+    border-radius: 16px;
+  }
+
+  .form-doa-card form {
+    gap: 20px;
+  }
+
+  .form-doa-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .form-doa-field input,
+  .form-doa-field select {
+    height: 46px;
+  }
+
+  .form-doa-field textarea {
+    min-height: 125px;
+  }
+
+  .form-doa-consent span {
+    font-size: 10px;
+  }
+
+  .form-doa-submit {
+    min-height: 50px;
+    font-size: 11px;
+  }
+
+  .form-doa-success {
+    min-height: 340px;
+    padding: 25px 4px;
+  }
+
+  .form-doa-success-title {
+    font-size: 18px;
+  }
+
+  .form-doa-success-description {
+    font-size: 12px;
+  }
+}

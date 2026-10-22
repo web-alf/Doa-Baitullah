@@ -1,0 +1,68 @@
+
+---
+import "../styles/faq.css";
+
+const daftarFAQ = [
+  {
+    pertanyaan: "Apakah semua orang bisa menitipkan doa?",
+    jawaban:
+      "Ya, siapa pun dapat menitipkan doa dan harapan terbaiknya.",
+  },
+  {
+    pertanyaan: "Doa apa saja yang boleh dititipkan?",
+    jawaban:
+      "Doa dapat berkaitan dengan orang tua, keluarga, kesehatan, rezeki, jodoh, pekerjaan, keturunan, pendidikan, maupun hajat lainnya.",
+  },
+  {
+    pertanyaan: "Apakah doa saya dijamin dikabulkan?",
+    jawaban:
+      "Tidak ada manusia yang dapat menjamin terkabulnya sebuah doa. Kita berdoa dan berikhtiar, sementara hasil akhirnya kita serahkan kepada Allah.",
+  },
+  {
+    pertanyaan: "Apakah nama saya harus ditulis lengkap?",
+    jawaban:
+      'Tidak harus. Jika ingin lebih menjaga privasi, dapat menggunakan nama “Hamba Allah”.',
+  },
+];
+---
+
+<section class="faq-section" id="faq" aria-labelledby="faq-heading">
+  <div class="faq-container">
+
+    <!-- JUDUL -->
+    <div class="faq-header">
+      <h2 id="faq-heading" class="faq-heading">
+        Pertanyaan yang sering ditanyakan
+      </h2>
+
+      <p class="faq-subtitle">
+        Jika masih ragu, semoga ini menenangkan hati.
+      </p>
+    </div>
+
+    <!-- DAFTAR PERTANYAAN -->
+    <div class="faq-list">
+      {
+        daftarFAQ.map((item) => (
+          <details class="faq-item">
+            <summary class="faq-question">
+              <span class="faq-question-text">
+                {item.pertanyaan}
+              </span>
+
+              <span class="faq-icon" aria-hidden="true">
+                <span class="faq-icon-horizontal" />
+                <span class="faq-icon-vertical" />
+              </span>
+            </summary>
+
+            <div class="faq-answer">
+              <p>{item.jawaban}</p>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+
+  </div>
+</section>

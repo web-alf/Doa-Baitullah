@@ -1,0 +1,430 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+/* ======================================
+   FOOTER
+====================================== */
+
+.footer-section {
+  width: 100%;
+  padding: 48px 24px 20px;
+
+  background: #001c17;
+  color: #ffffff;
+
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* ======================================
+   GRID UTAMA - 4 KOLOM
+====================================== */
+
+.footer-main {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.85fr)
+    minmax(0, 0.95fr)
+    minmax(0, 0.45fr)
+    minmax(0, 1.9fr);
+
+  gap: 24px;
+  align-items: start;
+
+  padding-left: 35px;
+  padding-bottom: 32px;
+
+  box-sizing: border-box;
+}
+
+.footer-about,
+.footer-contacts-column,
+.footer-navigation,
+.footer-legal {
+  min-width: 0;
+}
+
+/* ======================================
+   LOGO & BRAND
+====================================== */
+
+.footer-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 18px;
+
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 39px;
+  height: 39px;
+  flex-shrink: 0;
+
+  background: #006653;
+  border-radius: 11px;
+
+  overflow: visible;
+}
+
+.footer-logo img {
+  display: block;
+
+  width: 48px;
+  height: 48px;
+  max-width: none;
+
+  object-fit: contain;
+}
+
+.footer-brand-name {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.footer-brand-name strong {
+  color: #ffffff;
+
+  font-size: 15px;
+  font-weight: 800;
+  line-height: 1.3;
+}
+
+.footer-brand-name small {
+  color: #e5bf62;
+
+  font-size: 10.5px;
+  font-weight: 600;
+}
+
+/* ======================================
+   DESKRIPSI
+====================================== */
+
+.footer-description {
+  max-width: 280px;
+  margin: 0;
+
+  color: #b1cac2;
+
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* ======================================
+   JUDUL KOLOM
+====================================== */
+
+.footer-title {
+  margin: 6px 0 19px;
+
+  color: #d6b66b;
+
+  font-size: 11.5px;
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+/* ======================================
+   KONTAK
+====================================== */
+
+.footer-contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.footer-contact {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  min-width: 0;
+
+  color: #b1cac2;
+
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 1.8;
+
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.footer-contact svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+
+  margin-top: 2px;
+  color: #e5bf62;
+}
+
+.footer-contact span {
+  min-width: 0;
+}
+
+a.footer-contact {
+  transition: color 0.2s ease;
+}
+
+a.footer-contact:hover {
+  color: #f1d57f;
+}
+
+/* ======================================
+   NAVIGASI
+====================================== */
+
+.footer-navigation nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-navigation nav a {
+  color: #d2e1dc;
+
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 1.8;
+
+  text-decoration: none;
+
+  transition: color 0.2s ease;
+}
+
+.footer-navigation nav a:hover {
+  color: #f1d57f;
+}
+
+/* ======================================
+   LEGALITAS
+   FONT SAMA DENGAN DESKRIPSI
+====================================== */
+
+.footer-legal {
+  width: 100%;
+  min-width: 0;
+}
+
+.footer-legal-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-legal-item {
+  margin: 0;
+
+  color: #b1cac2;
+
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0;
+
+  overflow-wrap: anywhere;
+}
+
+/* LABEL TEBAL SESUAI PERMINTAAN */
+
+.footer-legal-item strong {
+  color: #ffffff;
+
+  font-size: inherit;
+  font-weight: 800;
+}
+
+/* ======================================
+   SK KEMENKUMHAM
+====================================== */
+
+.footer-legal-sk {
+  font-size: 11.5px;
+  font-weight: 400;
+  line-height: 1.8;
+  letter-spacing: 0;
+}
+
+.footer-sk-line {
+  display: block;
+  white-space: normal;
+}
+
+/* ======================================
+   GARIS PEMBATAS
+====================================== */
+
+.footer-divider {
+  width: 100%;
+  height: 1px;
+
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ======================================
+   COPYRIGHT
+====================================== */
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 16px;
+  padding-top: 17px;
+}
+
+.footer-bottom p {
+  margin: 0;
+
+  color: #789d94;
+
+  font-size: 10.5px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.footer-bottom-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-dot {
+  width: 6px;
+  height: 6px;
+  flex-shrink: 0;
+
+  border-radius: 50%;
+  background: #d4af37;
+}
+
+/* ======================================
+   LAPTOP KECIL
+====================================== */
+
+@media (max-width: 1100px) {
+  .footer-main {
+    grid-template-columns:
+      minmax(0, 0.85fr)
+      minmax(0, 1fr)
+      minmax(0, 0.5fr)
+      minmax(0, 1.65fr);
+
+    gap: 20px;
+    padding-left: 22px;
+  }
+}
+
+/* ======================================
+   TABLET
+====================================== */
+
+@media (max-width: 850px) {
+  .footer-section {
+    padding: 45px 24px 20px;
+  }
+
+  .footer-main {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 32px 28px;
+    padding-left: 0;
+    padding-bottom: 32px;
+  }
+
+  .footer-description {
+    max-width: 340px;
+  }
+}
+
+/* ======================================
+   MOBILE
+====================================== */
+
+@media (max-width: 480px) {
+  .footer-section {
+    padding: 40px 18px 18px;
+  }
+
+  .footer-main {
+    grid-template-columns: 1fr;
+
+    gap: 28px;
+    padding-left: 0;
+    padding-bottom: 28px;
+  }
+
+  .footer-brand {
+    margin-bottom: 16px;
+  }
+
+  .footer-logo img {
+    width: 46px;
+    height: 46px;
+  }
+
+  .footer-description {
+    max-width: 100%;
+  }
+
+  .footer-title {
+    margin: 0 0 15px;
+  }
+
+  .footer-contacts {
+    gap: 12px;
+  }
+
+  .footer-navigation nav {
+    gap: 10px;
+  }
+
+  .footer-legal-list {
+    gap: 11px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 8px;
+    padding-top: 16px;
+  }
+
+  .footer-bottom p {
+    font-size: 10px;
+  }
+}
+
+/* ======================================
+   REDUCED MOTION
+====================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .footer-navigation nav a,
+  a.footer-contact {
+    transition: none;
+  }
+}

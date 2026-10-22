@@ -1,0 +1,317 @@
+
+/* =========================================
+   SECTION JENIS DOA
+========================================= */
+
+.jenis-doa {
+  /* PENTING: supaya garis berada di atas section ini */
+  position: relative;
+
+  width: 100%;
+  margin: 0;
+
+  padding: 45px 24px 65px;
+
+  /* Background berbeda dari Ruang Doa */
+  background: #fff8ed;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  /* Garis tambahan bawaan dihilangkan */
+  border: none;
+  box-shadow: none;
+}
+
+/* =========================================
+   GARIS PEMBATAS ATAS
+========================================= */
+
+.jenis-doa::before {
+  content: "";
+  display: block;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  width: 100%;
+  height: 1px;
+
+  /* Garis lebih tipis dan lembut */
+  background-color: rgba(145, 115, 65, 0.10);
+
+  z-index: 5;
+  pointer-events: none;
+}
+
+/* =========================================
+   CONTAINER
+========================================= */
+
+.jenis-doa-container {
+  position: relative;
+
+  width: 100%;
+  max-width: 1096px;
+  margin: 0 auto;
+}
+
+/* =========================================
+   HEADING
+========================================= */
+
+.jenis-doa-heading {
+  width: 100%;
+  max-width: 100%;
+
+  margin: 0 auto 42px;
+
+  text-align: center;
+}
+
+.jenis-doa-title {
+  margin: 0 0 14px;
+
+  color: #005443;
+
+  font-size: clamp(27px, 3vw, 36px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1.2px;
+}
+
+/* =========================================
+   SUBTITLE LURUS SATU BARIS
+========================================= */
+
+.jenis-doa-subtitle {
+  width: 100%;
+  max-width: none;
+
+  margin: 0 auto;
+
+  color: #65887e;
+
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.8;
+
+  text-align: center;
+}
+
+/* Subtitle satu baris di desktop */
+@media (min-width: 1025px) {
+  .jenis-doa-subtitle {
+    white-space: nowrap;
+  }
+}
+
+/* =========================================
+   GRID 6 KARTU
+========================================= */
+
+.jenis-doa-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+/* =========================================
+   KARTU DOA
+========================================= */
+
+.jenis-doa-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  min-height: 215px;
+  padding: 24px;
+
+  background: #ffffff;
+
+  border: 1px solid #e9f0ed;
+  border-radius: 18px;
+
+  box-shadow: 0 8px 24px rgba(0, 57, 45, 0.035);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.jenis-doa-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #e4d19b;
+
+  box-shadow: 0 12px 30px rgba(0, 57, 45, 0.08);
+}
+
+/* =========================================
+   ICON
+========================================= */
+
+.jenis-doa-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  margin-bottom: 18px;
+
+  background: #f2f7f3;
+
+  border: 1px solid #e8d8a5;
+  border-radius: 50%;
+
+  font-size: 20px;
+  line-height: 1;
+}
+
+/* =========================================
+   JUDUL KARTU
+========================================= */
+
+.jenis-doa-card-title {
+  margin: 0 0 11px;
+
+  color: #004b3d;
+
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+/* =========================================
+   DESKRIPSI KARTU
+========================================= */
+
+.jenis-doa-card-description {
+  margin: 0;
+
+  color: #65887e;
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+  .jenis-doa {
+    padding: 40px 24px 60px;
+  }
+
+  .jenis-doa-subtitle {
+    white-space: normal;
+  }
+
+  .jenis-doa-grid {
+    gap: 16px;
+  }
+
+  .jenis-doa-card {
+    min-height: 225px;
+    padding: 21px;
+  }
+
+  .jenis-doa-card-title {
+    font-size: 14px;
+  }
+}
+
+/* =========================================
+   TABLET KECIL
+========================================= */
+
+@media (max-width: 768px) {
+  .jenis-doa {
+    padding: 35px 20px 55px;
+  }
+
+  .jenis-doa-heading {
+    margin-bottom: 32px;
+  }
+
+  .jenis-doa-title {
+    font-size: 29px;
+  }
+
+  .jenis-doa-subtitle {
+    font-size: 12px;
+    line-height: 1.8;
+    white-space: normal;
+  }
+
+  .jenis-doa-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+  }
+
+  .jenis-doa-card {
+    min-height: 210px;
+    padding: 20px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 540px) {
+  .jenis-doa {
+    padding: 30px 16px 50px;
+  }
+
+  .jenis-doa-heading {
+    margin-bottom: 28px;
+  }
+
+  .jenis-doa-title {
+    font-size: 26px;
+    letter-spacing: -0.8px;
+  }
+
+  .jenis-doa-subtitle {
+    font-size: 12px;
+    line-height: 1.8;
+    white-space: normal;
+  }
+
+  .jenis-doa-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .jenis-doa-card {
+    min-height: auto;
+    padding: 22px;
+  }
+
+  .jenis-doa-icon {
+    width: 40px;
+    height: 40px;
+
+    margin-bottom: 15px;
+
+    font-size: 19px;
+  }
+
+  .jenis-doa-card-title {
+    font-size: 15px;
+  }
+
+  .jenis-doa-card-description {
+    font-size: 12px;
+  }
+}

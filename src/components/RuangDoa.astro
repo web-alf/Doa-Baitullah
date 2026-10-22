@@ -1,0 +1,69 @@
+
+---
+import "../styles/ruang-doa.css";
+import ruangDoa from "../assets/image/ruang-doa.webp";
+---
+
+<section class="ruang-doa" id="tentang">
+  <div class="ruang-doa-container">
+
+    <!-- =====================================
+         KOLOM KIRI: TEKS
+    ====================================== -->
+    <div class="ruang-doa-content">
+
+      <!-- LABEL KECIL -->
+      <span class="ruang-doa-label">
+        Ruang Untuk Berhenti Sejenak
+      </span>
+
+      <!-- JUDUL -->
+      <h2 class="ruang-doa-title">
+        Ada Doa yang hanya kita<br class="desktop-break" />
+        dan Allah Ta’ala yang Tahu
+      </h2>
+
+      <!-- KOTAK KUTIPAN -->
+      <div class="ruang-doa-quote">
+
+        <p>
+          “Untuk kesembuhan, keluarga, rezeki, jodoh,
+          pekerjaan, keturunan, pendidikan atau sekadar
+          memohon hati yang lebih tenang.
+        </p>
+
+        <p>
+          Mungkin hari ini kita belum bisa berdiri di depan
+          Ka’bah. Namun kita tetap bisa menitipkan doa dan
+          harapan terbaik kepada Allah Ta’ala.”
+        </p>
+
+        <!-- TEKS BAWAH -->
+        <div class="ruang-doa-signature">
+          <span class="ruang-doa-line"></span>
+
+          <span>
+            Doa Adalah Bahasa Paling Jujur
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- =====================================
+         KOLOM KANAN: FOTO
+         TANPA IKON TANGAN
+         TANPA KOTAK TEKS TAMBAHAN
+    ====================================== -->
+    <div class="ruang-doa-image-wrap">
+      <img
+        src={ruangDoa.src}
+        alt="Foto suasana Baitullah"
+        class="ruang-doa-image"
+        loading="lazy"
+      />
+    </div>
+
+  </div>
+</section>

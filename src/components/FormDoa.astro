@@ -1,0 +1,474 @@
+
+---
+import "../styles/form-doa.css";
+
+const keunggulan = [
+  {
+    judul: "Amanah",
+    deskripsi: "Dititipkan dengan penuh tanggung jawab",
+  },
+  {
+    judul: "Privasi Terjaga",
+    deskripsi: "Boleh anonim sebagai Hamba Allah",
+  },
+  {
+    judul: "InsyaAllah di Baitullah",
+    deskripsi: "Dipanjatkan di tempat mustajab",
+  },
+];
+---
+
+<section class="form-doa-section" id="titip-doa">
+  <div class="form-doa-container">
+
+    <!-- =====================================
+         BAGIAN KIRI
+    ===================================== -->
+    <div class="form-doa-info">
+
+      <h2 class="form-doa-heading">
+        TITIPKAN DOA<br />
+        <span>TERBAIKMU</span>
+      </h2>
+
+      <p class="form-doa-intro">
+        Tuliskan doa dan harapan dengan tulus. InsyaAllah,
+        doa akan diproses dengan amanah dan diteruskan kepada
+        santri yang mukim di Makkah untuk dibacakan di Baitullah.
+      </p>
+
+      <div class="form-doa-benefits">
+        {
+          keunggulan.map((item) => (
+            <div class="form-doa-benefit">
+              <div class="form-doa-check" aria-hidden="true">
+                ✓
+              </div>
+
+              <div class="form-doa-benefit-content">
+                <h3>{item.judul}</h3>
+                <p>{item.deskripsi}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+    </div>
+
+    <!-- =====================================
+         BAGIAN KANAN
+    ===================================== -->
+    <div class="form-doa-card">
+
+      <!-- FORM TITIP DOA -->
+      <form id="form-titip-doa">
+
+        <div class="form-doa-grid">
+
+          <!-- NAMA -->
+          <div class="form-doa-field">
+            <label for="doa-nama">
+              NAMA
+            </label>
+
+            <input
+              type="text"
+              id="doa-nama"
+              name="nama"
+              placeholder="Hamba Allah / nama lengkap"
+              autocomplete="name"
+              maxlength="120"
+              required
+            />
+          </div>
+
+          <!-- WHATSAPP -->
+          <div class="form-doa-field">
+            <label for="doa-whatsapp">
+              NOMOR WHATSAPP
+            </label>
+
+            <input
+              type="tel"
+              id="doa-whatsapp"
+              name="whatsapp"
+              placeholder="08xx xxxx xxxx"
+              autocomplete="tel"
+              inputmode="tel"
+              maxlength="25"
+              required
+            />
+          </div>
+
+        </div>
+
+        <!-- ISI DOA -->
+        <div class="form-doa-field">
+          <label for="doa-isi">
+            DOA / HAJAT YANG INGIN DITITIPKAN
+          </label>
+
+          <textarea
+            id="doa-isi"
+            name="doa"
+            rows="5"
+            maxlength="5000"
+            placeholder="Tuliskan doa terbaikmu di sini dengan penuh harap..."
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-doa-grid">
+
+          <!-- UNTUK SIAPA -->
+          <div class="form-doa-field">
+            <label for="doa-untuk">
+              UNTUK SIAPA DOA TERSEBUT
+            </label>
+
+            <input
+              type="text"
+              id="doa-untuk"
+              name="untuk"
+              maxlength="150"
+              placeholder="Orang tua, diri sendiri, keluarga..."
+              required
+            />
+          </div>
+
+          <!-- KATEGORI -->
+          <div class="form-doa-field">
+            <label for="doa-kategori">
+              KATEGORI DOA
+            </label>
+
+            <select
+              id="doa-kategori"
+              name="kategori"
+              required
+            >
+              <option value="" disabled selected>
+                Pilih kategori
+              </option>
+
+              <option value="Doa untuk Orang Tua">
+                Doa untuk Orang Tua
+              </option>
+
+              <option value="Doa untuk Orang Tersayang">
+                Doa untuk Orang Tersayang
+              </option>
+
+              <option value="Doa Jodoh">
+                Doa Jodoh
+              </option>
+
+              <option value="Doa Rezeki & Pekerjaan">
+                Doa Rezeki & Pekerjaan
+              </option>
+
+              <option value="Doa Keturunan">
+                Doa Keturunan
+              </option>
+
+              <option value="Doa Ketenangan Hati">
+                Doa Ketenangan Hati
+              </option>
+
+              <option value="Lainnya">
+                Lainnya
+              </option>
+            </select>
+          </div>
+
+        </div>
+
+        <!-- PERSETUJUAN -->
+        <label class="form-doa-consent">
+
+          <input
+            type="checkbox"
+            name="persetujuan"
+            required
+          />
+
+          <span>
+            Saya bersedia doa ini dititipkan untuk
+            dipanjatkan di Baitullah.
+          </span>
+
+        </label>
+
+        <!-- TOMBOL KIRIM -->
+        <button
+          type="submit"
+          class="form-doa-submit"
+        >
+          KIRIM TITIPAN DOA
+        </button>
+
+        <p class="form-doa-note">
+          Privasi terjaga. Boleh menggunakan nama Hamba Allah.
+        </p>
+
+        <!-- PESAN ERROR -->
+        <p
+          class="form-doa-status"
+          id="form-doa-status"
+          role="status"
+          aria-live="polite"
+          hidden
+        ></p>
+
+      </form>
+
+      <!-- =====================================
+           TAMPILAN SUKSES
+      ===================================== -->
+      <div
+        class="form-doa-success"
+        id="form-doa-success"
+        role="status"
+        aria-live="polite"
+        hidden
+      >
+
+        <div
+          class="form-doa-success-icon"
+          aria-hidden="true"
+        >
+          ✓
+        </div>
+
+        <h3 class="form-doa-success-title">
+          Alhamdulillah, doa telah kami terima.
+        </h3>
+
+        <p class="form-doa-success-description">
+          Semoga Allah kabulkan di waktu terbaik,
+          dengan cara terbaik menurut-Nya.
+          Tugas kita berdoa, berikhtiar,
+          lalu bertawakal.
+        </p>
+
+        <button
+          type="button"
+          class="form-doa-again"
+          id="form-doa-again"
+        >
+          Titip doa lain
+        </button>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // =====================================
+  // FORM TITIP DOA - GOOGLE SHEETS
+  // =====================================
+
+  const form = document.querySelector<HTMLFormElement>(
+    "#form-titip-doa"
+  );
+
+  const success = document.querySelector<HTMLElement>(
+    "#form-doa-success"
+  );
+
+  const again = document.querySelector<HTMLButtonElement>(
+    "#form-doa-again"
+  );
+
+  const status = document.querySelector<HTMLElement>(
+    "#form-doa-status"
+  );
+
+  const submitButton =
+    form?.querySelector<HTMLButtonElement>(
+      'button[type="submit"]'
+    );
+
+  // =====================================
+  // KIRIM DATA KE API ASTRO
+  // =====================================
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (!form || !form.reportValidity()) {
+      return;
+    }
+
+    // Hindari submit berulang
+    if (submitButton?.disabled) {
+      return;
+    }
+
+    const formData = new FormData(form);
+
+    const payload = {
+      nama: String(
+        formData.get("nama") ?? ""
+      ).trim(),
+
+      whatsapp: String(
+        formData.get("whatsapp") ?? ""
+      ).trim(),
+
+      doa: String(
+        formData.get("doa") ?? ""
+      ).trim(),
+
+      untuk: String(
+        formData.get("untuk") ?? ""
+      ).trim(),
+
+      kategori: String(
+        formData.get("kategori") ?? ""
+      ).trim(),
+
+      persetujuan:
+        formData.get("persetujuan") === "on",
+    };
+
+    // =====================================
+    // BERSIHKAN PESAN ERROR
+    // =====================================
+
+    if (status) {
+      status.hidden = true;
+      status.textContent = "";
+    }
+
+    // =====================================
+    // TAMPILKAN LOADING
+    // =====================================
+
+    if (submitButton) {
+      submitButton.disabled = true;
+      submitButton.textContent = "MENGIRIM DOA...";
+      submitButton.setAttribute(
+        "aria-busy",
+        "true"
+      );
+    }
+
+    try {
+      // =====================================
+      // KIRIM KE API ASTRO
+      // =====================================
+
+      const response = await fetch(
+        "/api/titip-doa",
+        {
+          method: "POST",
+
+          headers: {
+            "Content-Type": "application/json",
+          },
+
+          body: JSON.stringify(payload),
+        }
+      );
+
+      const result = await response.json();
+
+      if (
+        !response.ok ||
+        result.success !== true
+      ) {
+        throw new Error(
+          result.message ||
+          "Doa belum berhasil dikirim. Silakan coba lagi."
+        );
+      }
+
+      // =====================================
+      // BERHASIL DISIMPAN DI GOOGLE SHEETS
+      // =====================================
+
+      form.hidden = true;
+
+      if (success) {
+        success.hidden = false;
+
+        success.scrollIntoView({
+          behavior: "smooth",
+          block: "center",
+        });
+      }
+
+    } catch (error) {
+      // =====================================
+      // TAMPILKAN ERROR
+      // =====================================
+
+      console.error(
+        "Gagal mengirim doa:",
+        error
+      );
+
+      if (status) {
+        status.textContent =
+          error instanceof Error
+            ? error.message
+            : "Terjadi kesalahan. Silakan coba lagi.";
+
+        status.hidden = false;
+        status.style.color = "#b42318";
+      }
+
+    } finally {
+      // =====================================
+      // KEMBALIKAN TOMBOL
+      // =====================================
+
+      if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent =
+          "KIRIM TITIPAN DOA";
+
+        submitButton.removeAttribute(
+          "aria-busy"
+        );
+      }
+    }
+  });
+
+  // =====================================
+  // TOMBOL TITIP DOA LAIN
+  // =====================================
+
+  again?.addEventListener("click", () => {
+    if (!form || !success) {
+      return;
+    }
+
+    // Kosongkan form
+    form.reset();
+
+    // Sembunyikan pesan sukses
+    success.hidden = true;
+
+    // Tampilkan form kembali
+    form.hidden = false;
+
+    // Bersihkan pesan error
+    if (status) {
+      status.hidden = true;
+      status.textContent = "";
+    }
+
+    // Fokus ke input nama
+    const namaInput =
+      form.querySelector<HTMLInputElement>(
+        "#doa-nama"
+      );
+
+    namaInput?.focus();
+  });
+</script>

@@ -1,0 +1,85 @@
+
+---
+import "../styles/jenis-doa.css";
+
+const jenisDoa = [
+  {
+    icon: "🤲",
+    title: "Doa untuk Orang Tua",
+    description:
+      "Doa untuk kesehatan dan keberkahan orang tua, serta ampunan dan rahmat bagi mereka yang telah berpulang.",
+  },
+  {
+    icon: "❤️",
+    title: "Doa untuk Orang Tersayang",
+    description:
+      "Memohon kesehatan, kebahagiaan, perlindungan, dan kebaikan untuk keluarga, anak, sahabat, maupun teman tercinta.",
+  },
+  {
+    icon: "💍",
+    title: "Doa Jodoh",
+    description:
+      "Memohon dipertemukan dengan pasangan terbaik menurut Allah.",
+  },
+  {
+    icon: "💰",
+    title: "Doa Rezeki & Pekerjaan",
+    description:
+      "Memohon rezeki yang halal, luas, dan penuh keberkahan.",
+  },
+  {
+    icon: "👶",
+    title: "Doa Keturunan",
+    description:
+      "Memohon keturunan yang sehat, saleh dan salehah.",
+  },
+  {
+    icon: "🌿",
+    title: "Doa Ketenangan Hati",
+    description:
+      "Memohon hati yang tenang, kuat dan selalu dekat dengan Allah.",
+  },
+];
+---
+
+<section class="jenis-doa" id="program">
+  <div class="jenis-doa-container">
+
+    <!-- JUDUL SECTION -->
+    <div class="jenis-doa-heading">
+      <h2 class="jenis-doa-title">
+        Doa Apa saja yang bisa dititipkan?
+      </h2>
+
+      <p class="jenis-doa-subtitle">
+        Sampaikan doa terbaikmu dengan penuh harap.
+        Titipkan setiap hajat kepada Allah dengan hati
+        yang tulus dan penuh tawakal.
+      </p>
+    </div>
+
+    <!-- ENAM KARTU DOA -->
+    <div class="jenis-doa-grid">
+      {
+        jenisDoa.map((doa) => (
+          <article class="jenis-doa-card">
+
+            <div class="jenis-doa-icon" aria-hidden="true">
+              {doa.icon}
+            </div>
+
+            <h3 class="jenis-doa-card-title">
+              {doa.title}
+            </h3>
+
+            <p class="jenis-doa-card-description">
+              {doa.description}
+            </p>
+
+          </article>
+        ))
+      }
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,55 @@
+
+---
+import "../styles/hero.css";
+import background from "../assets/image/background.webp";
+---
+
+<section
+  class="hero"
+  id="beranda"
+  style={`--hero-image: url("${background.src}")`}
+>
+  <div class="hero-container">
+    <div class="hero-content">
+
+      <!-- BADGE DI ATAS JUDUL -->
+      <div class="hero-badge">
+        <span class="hero-badge-icon" aria-hidden="true">✨</span>
+        <span>Dari Hati yang Rindu Baitullah</span>
+      </div>
+
+      <!-- JUDUL -->
+      <h1 class="hero-title">
+        <span class="hero-title-white">
+          BELUM BISA SAMPAI<br />
+          KE BAITULLAH?
+        </span>
+
+        <span class="hero-title-gold">
+          TITIPKAN DOAMU<br />
+          DI SANA.
+        </span>
+      </h1>
+
+      <!-- DESKRIPSI -->
+      <p class="hero-description">
+        Sampaikan doa dan harapan terbaikmu di Baitullah,
+        Insya Allah doamu akan dipanjatkan langsung
+        di Masjidil Haram.
+      </p>
+
+      <!-- TOMBOL CTA -->
+      <a href="#titip-doa" class="hero-button">
+        <span>TITIPKAN DOA SEKARANG</span>
+        <span class="hero-button-arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <!-- CATATAN -->
+      <p class="hero-note">
+        Semoga setiap doa yang dipanjatkan menjadi wasilah
+        datangnya pertolongan Allah.
+      </p>
+
+    </div>
+  </div>
+</section>

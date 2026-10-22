@@ -1,0 +1,65 @@
+
+---
+import "../styles/cara-menitipkan.css";
+
+const langkah = [
+  {
+    nomor: "01",
+    judul: "Tuliskan Doamu",
+    deskripsi:
+      "Tuliskan doa, harapan, atau hajat yang ingin dititipkan.",
+  },
+  {
+    nomor: "02",
+    judul: "Kami Terima Titipan Doamu",
+    deskripsi:
+      "Doa yang telah dikirim akan diproses dan didata oleh tim office, kemudian diteruskan kepada santri yang mukim di Makkah untuk didoakan di Baitullah.",
+  },
+  {
+    nomor: "03",
+    judul: "Ikhtiar dan Berserah Kepada Allah Ta’ala",
+    deskripsi:
+      "Sampaikan doa dengan penuh keyakinan, iringi dengan ikhtiar terbaik, dan serahkan segala hasilnya kepada Allah dengan penuh tawakal.",
+  },
+];
+---
+
+<section class="cara-menitipkan" id="cara-menitipkan">
+  <div class="cara-container">
+
+    <!-- HEADER SECTION -->
+    <div class="cara-heading">
+      <h2 class="cara-title">
+        <span class="cara-title-dark">Cara menitipkan</span><br />
+        <span class="cara-title-soft">doa begitu sederhana.</span>
+      </h2>
+
+      <p class="cara-subtitle">
+      </p>
+    </div>
+
+    <!-- TIGA LANGKAH -->
+    <div class="cara-steps">
+      {
+        langkah.map((item) => (
+          <div class="cara-step">
+            <div class="cara-number">
+              {item.nomor}
+            </div>
+
+            <div class="cara-step-content">
+              <h3 class="cara-step-title">
+                {item.judul}
+              </h3>
+
+              <p class="cara-step-description">
+                {item.deskripsi}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+  </div>
+</section>

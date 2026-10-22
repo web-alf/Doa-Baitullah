@@ -1,0 +1,425 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+
+/* =====================================
+   SECTION TESTIMONI
+===================================== */
+
+.testimoni-section {
+  position: relative;
+  width: 100%;
+
+  padding: 90px 24px 38px;
+  margin: 0;
+  min-height: auto;
+
+  background: #fff8ee;
+  font-family: "Plus Jakarta Sans", Arial, sans-serif;
+}
+
+/* =====================================
+   CONTAINER
+===================================== */
+
+.testimoni-container {
+  width: 100%;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+
+/* =====================================
+   HEADER
+===================================== */
+
+.testimoni-header {
+  margin-bottom: 42px;
+}
+
+.testimoni-heading {
+  margin: 0 0 13px;
+
+  color: #005443;
+  font-size: clamp(29px, 3vw, 38px);
+  font-weight: 800;
+  line-height: 1.17;
+  letter-spacing: -1.6px;
+}
+
+.testimoni-subtitle {
+  margin: 0;
+
+  color: #71968c;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+/* =====================================
+   GRID 3 HP RAMPING
+===================================== */
+
+.testimoni-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 285px));
+
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+}
+
+/* =====================================
+   CARD TESTIMONI
+===================================== */
+
+.testimoni-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-width: 0;
+
+  background: #ffffff;
+  border: 1px solid #e9f0ed;
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 12px 32px rgba(0, 58, 47, 0.035);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.testimoni-card:hover {
+  transform: translateY(-5px);
+  border-color: #d4e5de;
+
+  box-shadow:
+    0 18px 38px rgba(0, 58, 47, 0.09);
+}
+
+/* =====================================
+   AREA GAMBAR HP
+===================================== */
+
+.testimoni-image-wrapper {
+  position: relative;
+
+  width: 100%;
+  height: 485px;
+
+  background: #ffffff;
+  overflow: hidden;
+
+  touch-action: pan-y;
+}
+
+/* =====================================
+   TRACK SLIDER HORIZONTAL
+===================================== */
+
+.testimoni-track {
+  display: flex;
+
+  width: 100%;
+  height: 100%;
+
+  transform: translate3d(0, 0, 0);
+
+  transition:
+    transform 0.85s cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    );
+
+  will-change: transform;
+}
+
+/* =====================================
+   SETIAP SLIDE
+===================================== */
+
+.testimoni-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 100%;
+
+  width: 100%;
+  height: 100%;
+
+  padding: 7px;
+  box-sizing: border-box;
+}
+
+/* =====================================
+   GAMBAR SCREENSHOT HP
+===================================== */
+
+.testimoni-slide img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+  object-position: center;
+
+  border-radius: 8px;
+
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* =====================================
+   PANAH NAVIGASI
+===================================== */
+
+.testimoni-nav {
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+  padding: 0;
+
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e5eeee;
+  border-radius: 50%;
+
+  color: #005443;
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+  opacity: 0;
+
+  transform: translateY(-50%);
+
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.1);
+
+  transition:
+    opacity 0.2s ease,
+    background 0.2s ease;
+}
+
+/* =====================================
+   PANAH KIRI
+===================================== */
+
+.testimoni-prev {
+  left: 10px;
+}
+
+/* =====================================
+   PANAH KANAN
+===================================== */
+
+.testimoni-next {
+  right: 10px;
+}
+
+/* =====================================
+   HOVER PANAH
+===================================== */
+
+.testimoni-card:hover .testimoni-nav,
+.testimoni-card:focus-within .testimoni-nav {
+  opacity: 1;
+}
+
+.testimoni-nav:hover {
+  background: #ffe5a0;
+}
+
+.testimoni-nav:focus-visible {
+  opacity: 1;
+  outline: 2px solid #d4af37;
+  outline-offset: 2px;
+}
+
+/* =====================================
+   FOOTER DIHILANGKAN
+===================================== */
+
+.testimoni-card-footer {
+  display: none !important;
+}
+
+/* =====================================
+   TABLET
+===================================== */
+
+@media (max-width: 1024px) {
+  .testimoni-section {
+    padding: 75px 24px 35px;
+  }
+
+  .testimoni-grid {
+    grid-template-columns: repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .testimoni-image-wrapper {
+    height: 420px;
+  }
+
+  .testimoni-slide {
+    padding: 6px;
+  }
+}
+
+/* =====================================
+   TABLET KECIL
+===================================== */
+
+@media (max-width: 768px) {
+  .testimoni-section {
+    padding: 65px 20px 30px;
+  }
+
+  .testimoni-heading {
+    font-size: 32px;
+    letter-spacing: -1.2px;
+  }
+
+  .testimoni-header {
+    margin-bottom: 32px;
+  }
+
+  .testimoni-grid {
+    grid-template-columns: repeat(
+      2,
+      minmax(0, 285px)
+    );
+
+    justify-content: center;
+    gap: 16px;
+  }
+
+  .testimoni-image-wrapper {
+    height: 450px;
+  }
+
+  .testimoni-slide {
+    padding: 7px;
+  }
+
+  .testimoni-nav {
+    opacity: 1;
+  }
+}
+
+/* =====================================
+   MOBILE
+===================================== */
+
+@media (max-width: 480px) {
+  .testimoni-section {
+    padding: 55px 16px 28px;
+  }
+
+  .testimoni-heading {
+    font-size: 29px;
+    line-height: 1.25;
+    letter-spacing: -1px;
+  }
+
+  .testimoni-desktop-break {
+    display: none;
+  }
+
+  .testimoni-subtitle {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  .testimoni-header {
+    margin-bottom: 27px;
+  }
+
+  .testimoni-grid {
+    grid-template-columns: minmax(0, 285px);
+
+    justify-content: center;
+    gap: 18px;
+  }
+
+  .testimoni-card {
+    border-radius: 17px;
+  }
+
+  .testimoni-image-wrapper {
+    height: 485px;
+  }
+
+  .testimoni-slide {
+    padding: 7px;
+  }
+
+  .testimoni-slide img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+  }
+
+  .testimoni-nav {
+    opacity: 1;
+  }
+}
+
+/* =====================================
+   MOBILE SANGAT KECIL
+===================================== */
+
+@media (max-width: 340px) {
+  .testimoni-section {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .testimoni-grid {
+    grid-template-columns: minmax(0, 260px);
+  }
+
+  .testimoni-image-wrapper {
+    height: 450px;
+  }
+}
+
+/* =====================================
+   AKSESIBILITAS
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .testimoni-card,
+  .testimoni-track,
+  .testimoni-nav {
+    transition: none;
+  }
+
+  .testimoni-card:hover {
+    transform: none;
+  }
+}
