@@ -42,28 +42,26 @@ function jsonResponse(
 // API POST TITIP DOA
 // =====================================
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, locals }) => {
   try {
     // =====================================
-    // BACA KONFIGURASI DARI FILE .env
+    // BACA KONFIGURASI DARI CLOUDFLARE ATAU ENV LOKAL
     // =====================================
+    const runtimeEnv = locals.runtime?.env;
+
     const scriptUrl = String(
-  import.meta.env.GOOGLE_SCRIPT_URL ??
-  process.env.GOOGLE_SCRIPT_URL ??
-  ""
-).trim();
+      runtimeEnv?.GOOGLE_SCRIPT_URL ??
+        import.meta.env.GOOGLE_SCRIPT_URL ??
+        process.env.GOOGLE_SCRIPT_URL ??
+        ""
+    ).trim();
 
-const secretToken = String(
-  import.meta.env.GOOGLE_SCRIPT_TOKEN ??
-  process.env.GOOGLE_SCRIPT_TOKEN ??
-  ""
-).trim();
-
-console.log("CEK ASTRO URL:", Boolean(import.meta.env.GOOGLE_SCRIPT_URL));
-console.log("CEK ASTRO TOKEN:", Boolean(import.meta.env.GOOGLE_SCRIPT_TOKEN));
-console.log("CEK SERVER URL:", Boolean(process.env.GOOGLE_SCRIPT_URL));
-console.log("CEK SERVER TOKEN:", Boolean(process.env.GOOGLE_SCRIPT_TOKEN));
-
+    const secretToken = String(
+      runtimeEnv?.GOOGLE_SCRIPT_TOKEN ??
+        import.meta.env.GOOGLE_SCRIPT_TOKEN ??
+        process.env.GOOGLE_SCRIPT_TOKEN ??
+        ""
+    ).trim();
 
     if (!scriptUrl || !secretToken) {
       console.error(
