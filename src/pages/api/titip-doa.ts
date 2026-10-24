@@ -2,7 +2,7 @@
 import type { APIRoute } from "astro";
 import { env } from "cloudflare:workers";
 
-// API ini dijalankan di server, bukan di browser
+// API ini dijalankan di server
 export const prerender = false;
 
 // =====================================
@@ -46,8 +46,7 @@ function jsonResponse(
 export const POST: APIRoute = async ({ request }) => {
   try {
     // =====================================
-    // BACA KONFIGURASI CLOUDFLARE
-    // KOMPATIBEL DENGAN ASTRO V6
+    // BACA ENV CLOUDFLARE - ASTRO V6
     // =====================================
 
     const scriptUrl = String(
@@ -58,9 +57,22 @@ export const POST: APIRoute = async ({ request }) => {
       env.GOOGLE_SCRIPT_TOKEN ?? ""
     ).trim();
 
+    // =====================================
+    // DEBUG KONFIGURASI (TANPA BOCORKAN TOKEN)
+    // =====================================
+
+    console.log("DEBUG KONFIGURASI:", {
+      scriptUrlAda: Boolean(scriptUrl),
+      secretTokenAda: Boolean(secretToken),
+    });
+
     if (!scriptUrl || !secretToken) {
       console.error(
-        "Konfigurasi Google Apps Script belum lengkap."
+        "Konfigurasi Google Apps Script belum lengkap.",
+        {
+          scriptUrlAda: Boolean(scriptUrl),
+          secretTokenAda: Boolean(secretToken),
+        }
       );
 
       return jsonResponse(
@@ -81,9 +93,7 @@ export const POST: APIRoute = async ({ request }) => {
     try {
       parsedUrl = new URL(scriptUrl);
     } catch {
-      console.error(
-        "GOOGLE_SCRIPT_URL tidak valid."
-      );
+      console.error("GOOGLE_SCRIPT_URL tidak valid.");
 
       return jsonResponse(
         {
@@ -146,11 +156,16 @@ export const POST: APIRoute = async ({ request }) => {
       );
     }
 
+    // =====================================
+    // AMBIL DATA FORM
+    // =====================================
+
     const nama = String(body.nama ?? "").trim();
     const whatsapp = String(body.whatsapp ?? "").trim();
     const doa = String(body.doa ?? "").trim();
     const untuk = String(body.untuk ?? "").trim();
     const kategori = String(body.kategori ?? "").trim();
+
     const persetujuan = body.persetujuan === true;
 
     // =====================================
@@ -257,7 +272,7 @@ export const POST: APIRoute = async ({ request }) => {
     });
 
     // =====================================
-    // CEK STATUS HTTP GOOGLE APPS SCRIPT
+    // CEK STATUS HTTP
     // =====================================
 
     if (!response.ok) {
@@ -277,7 +292,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     // =====================================
-    // BACA RESPONSE JSON GOOGLE APPS SCRIPT
+    // BACA RESPONS JSON
     // =====================================
 
     let result: {
@@ -304,7 +319,7 @@ export const POST: APIRoute = async ({ request }) => {
     }
 
     // =====================================
-    // JIKA GOOGLE APPS SCRIPT MENOLAK DATA
+    // JIKA GOOGLE APPS SCRIPT MENOLAK
     // =====================================
 
     if (result.success !== true) {
@@ -340,10 +355,7 @@ export const POST: APIRoute = async ({ request }) => {
     // PENANGANAN ERROR
     // =====================================
 
-    console.error(
-      "API Titip Doa error:",
-      error
-    );
+    console.error("API Titip Doa error:", error);
 
     return jsonResponse(
       {
