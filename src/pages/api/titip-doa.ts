@@ -1,5 +1,6 @@
 
 import type { APIRoute } from "astro";
+import { env } from "cloudflare:workers";
 
 // API ini dijalankan di server, bukan di browser
 export const prerender = false;
@@ -42,25 +43,19 @@ function jsonResponse(
 // API POST TITIP DOA
 // =====================================
 
-export const POST: APIRoute = async ({ request, locals }) => {
+export const POST: APIRoute = async ({ request }) => {
   try {
     // =====================================
-    // BACA KONFIGURASI DARI CLOUDFLARE ATAU ENV LOKAL
+    // BACA KONFIGURASI CLOUDFLARE
+    // KOMPATIBEL DENGAN ASTRO V6
     // =====================================
-    const runtimeEnv = locals.runtime?.env;
 
     const scriptUrl = String(
-      runtimeEnv?.GOOGLE_SCRIPT_URL ??
-        import.meta.env.GOOGLE_SCRIPT_URL ??
-        process.env.GOOGLE_SCRIPT_URL ??
-        ""
+      env.GOOGLE_SCRIPT_URL ?? ""
     ).trim();
 
     const secretToken = String(
-      runtimeEnv?.GOOGLE_SCRIPT_TOKEN ??
-        import.meta.env.GOOGLE_SCRIPT_TOKEN ??
-        process.env.GOOGLE_SCRIPT_TOKEN ??
-        ""
+      env.GOOGLE_SCRIPT_TOKEN ?? ""
     ).trim();
 
     if (!scriptUrl || !secretToken) {
@@ -71,8 +66,47 @@ export const POST: APIRoute = async ({ request, locals }) => {
       return jsonResponse(
         {
           success: false,
-          message:
-            "Konfigurasi server belum lengkap.",
+          message: "Konfigurasi server belum lengkap.",
+        },
+        500
+      );
+    }
+
+    // =====================================
+    // VALIDASI URL GOOGLE APPS SCRIPT
+    // =====================================
+
+    let parsedUrl: URL;
+
+    try {
+      parsedUrl = new URL(scriptUrl);
+    } catch {
+      console.error(
+        "GOOGLE_SCRIPT_URL tidak valid."
+      );
+
+      return jsonResponse(
+        {
+          success: false,
+          message: "Konfigurasi URL server tidak valid.",
+        },
+        500
+      );
+    }
+
+    if (
+      parsedUrl.protocol !== "https:" ||
+      parsedUrl.hostname !== "script.google.com" ||
+      !parsedUrl.pathname.endsWith("/exec")
+    ) {
+      console.error(
+        "GOOGLE_SCRIPT_URL bukan URL Web App Google Apps Script."
+      );
+
+      return jsonResponse(
+        {
+          success: false,
+          message: "Konfigurasi Google Apps Script tidak valid.",
         },
         500
       );
@@ -85,12 +119,12 @@ export const POST: APIRoute = async ({ request, locals }) => {
     let body: Record<string, unknown>;
 
     try {
-      body = await request.json();
+      const parsedBody: unknown = await request.json();
 
       if (
-        !body ||
-        typeof body !== "object" ||
-        Array.isArray(body)
+        !parsedBody ||
+        typeof parsedBody !== "object" ||
+        Array.isArray(parsedBody)
       ) {
         return jsonResponse(
           {
@@ -100,6 +134,8 @@ export const POST: APIRoute = async ({ request, locals }) => {
           400
         );
       }
+
+      body = parsedBody as Record<string, unknown>;
     } catch {
       return jsonResponse(
         {
@@ -111,23 +147,11 @@ export const POST: APIRoute = async ({ request, locals }) => {
     }
 
     const nama = String(body.nama ?? "").trim();
-
-    const whatsapp = String(
-      body.whatsapp ?? ""
-    ).trim();
-
+    const whatsapp = String(body.whatsapp ?? "").trim();
     const doa = String(body.doa ?? "").trim();
-
-    const untuk = String(
-      body.untuk ?? ""
-    ).trim();
-
-    const kategori = String(
-      body.kategori ?? ""
-    ).trim();
-
-    const persetujuan =
-      body.persetujuan === true;
+    const untuk = String(body.untuk ?? "").trim();
+    const kategori = String(body.kategori ?? "").trim();
+    const persetujuan = body.persetujuan === true;
 
     // =====================================
     // VALIDASI KOLOM WAJIB
@@ -144,8 +168,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       return jsonResponse(
         {
           success: false,
-          message:
-            "Mohon lengkapi semua kolom formulir.",
+          message: "Mohon lengkapi semua kolom formulir.",
         },
         400
       );
@@ -164,8 +187,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       return jsonResponse(
         {
           success: false,
-          message:
-            "Ada isian yang terlalu panjang.",
+          message: "Ada isian yang terlalu panjang.",
         },
         400
       );
@@ -175,15 +197,13 @@ export const POST: APIRoute = async ({ request, locals }) => {
     // VALIDASI NOMOR WHATSAPP
     // =====================================
 
-    const whatsappRegex =
-      /^\+?[0-9\s()-]{8,25}$/;
+    const whatsappRegex = /^\+?[0-9\s()-]{8,25}$/;
 
     if (!whatsappRegex.test(whatsapp)) {
       return jsonResponse(
         {
           success: false,
-          message:
-            "Nomor WhatsApp tidak valid.",
+          message: "Nomor WhatsApp tidak valid.",
         },
         400
       );
@@ -197,8 +217,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
       return jsonResponse(
         {
           success: false,
-          message:
-            "Kategori doa tidak valid.",
+          message: "Kategori doa tidak valid.",
         },
         400
       );
@@ -210,11 +229,11 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
     const params = new URLSearchParams({
       token: secretToken,
-      nama: nama,
-      whatsapp: whatsapp,
-      doa: doa,
-      untuk: untuk,
-      kategori: kategori,
+      nama,
+      whatsapp,
+      doa,
+      untuk,
+      kategori,
       persetujuan: "true",
     });
 
@@ -238,7 +257,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     });
 
     // =====================================
-    // CEK RESPONSE GOOGLE APPS SCRIPT
+    // CEK STATUS HTTP GOOGLE APPS SCRIPT
     // =====================================
 
     if (!response.ok) {
@@ -257,6 +276,10 @@ export const POST: APIRoute = async ({ request, locals }) => {
       );
     }
 
+    // =====================================
+    // BACA RESPONSE JSON GOOGLE APPS SCRIPT
+    // =====================================
+
     let result: {
       success?: boolean;
       message?: string;
@@ -266,27 +289,28 @@ export const POST: APIRoute = async ({ request, locals }) => {
       result = await response.json();
     } catch {
       console.error(
-        "Google Apps Script tidak mengembalikan JSON."
+        "Google Apps Script tidak mengembalikan JSON.",
+        "HTTP status:",
+        response.status
       );
 
       return jsonResponse(
         {
           success: false,
-          message:
-            "Respons Google Apps Script tidak valid.",
+          message: "Respons Google Apps Script tidak valid.",
         },
         502
       );
     }
 
     // =====================================
-    // JIKA GOOGLE APPS SCRIPT MENOLAK
+    // JIKA GOOGLE APPS SCRIPT MENOLAK DATA
     // =====================================
 
     if (result.success !== true) {
       console.error(
         "Google Apps Script menolak data:",
-        result.message
+        result.message ?? "Alasan tidak diketahui."
       );
 
       return jsonResponse(
@@ -300,7 +324,7 @@ export const POST: APIRoute = async ({ request, locals }) => {
     }
 
     // =====================================
-    // BERHASIL DISIMPAN DI GOOGLE SHEETS
+    // BERHASIL DISIMPAN
     // =====================================
 
     console.log(
@@ -309,10 +333,8 @@ export const POST: APIRoute = async ({ request, locals }) => {
 
     return jsonResponse({
       success: true,
-      message:
-        "Alhamdulillah, doa berhasil dikirim!",
+      message: "Alhamdulillah, doa berhasil dikirim!",
     });
-
   } catch (error) {
     // =====================================
     // PENANGANAN ERROR
